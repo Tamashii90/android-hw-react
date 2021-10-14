@@ -1,0 +1,26 @@
+{
+	"name": "traffic-violations",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"start": "parcel index.html -p 3000",
+		"build": "rm C:/Users/ASUS/Desktop/JavaTest/dbdemo/src/main/resources/static/* && parcel build index.html --no-source-maps --dist-dir C:/Users/ASUS/Desktop/JavaTest/dbdemo/src/main/resources/static",
+		"proxy": "lcp --proxyUrl https://tamashii-spring.herokuapp.com"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@parcel/transformer-sass": "^2.0.0-nightly.625",
+		"local-cors-proxy": "^1.1.0",
+		"parcel": "^2.0.0-nightly.623"
+	},
+	"dependencies": {
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-helmet": "^6.1.0",
+		"react-router-dom": "^5.3.0",
+		"react-toastify": "^8.0.3",
+		"use-http": "^1.0.26"
+	}
+}
