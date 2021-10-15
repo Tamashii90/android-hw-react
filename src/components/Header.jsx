@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
+import ListContext from "../context/ListContext";
 import UsernameContext from "../context/UsernameContext";
 
 export default function Header() {
 	const [user, setUser] = useContext(UsernameContext);
+	const [, setList] = useContext(ListContext);
 	const history = useHistory();
 
 	const logOut = () => {
 		localStorage.clear();
+		setList([]);
 		setUser("");
 		history.replace("/login");
 	};
