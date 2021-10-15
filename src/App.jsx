@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Helmet from "react-helmet";
 import Header from "./components/Header";
 import LoginPage from "./pages/LoginPage";
-import IndexPage from "./pages/IndexPage";
+import UserPage from "./pages/UserPage";
 import RegisterPage from "./pages/RegisterPage";
 import ErrorPage from "./pages/ErrorPage";
 import ViolationPageRouter from "./components/ViolationPageRouter";
@@ -20,7 +20,7 @@ export function App() {
 			</header>
 			<main>
 				<Switch>
-					<Route exact path="/" component={IndexPage} />
+					<Route exact path="/" component={UserPage} />
 					<Route exact path="/login" component={LoginPage} />
 					<Route exact path="/register" component={RegisterPage} />
 					<Route

@@ -5,7 +5,7 @@ import { ToastContainer, toast, Zoom } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
 
-export default function ViolationPage() {
+export default function ViolationPageUser() {
 	const {
 		get,
 		post,

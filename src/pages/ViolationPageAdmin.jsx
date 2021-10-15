@@ -3,7 +3,7 @@ import { useFetch } from "use-http";
 import { useLocation } from "react-router";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 
-export default function ViolationPage() {
+export default function ViolationPageAdmin() {
 	const {
 		get,
 		loading,
