@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useHistory, Redirect } from "react-router-dom";
 import { useFetch } from "use-http";
 import { ToastContainer, toast, Flip } from "react-toastify";
+import UsernameContext from "../context/UsernameContext";
 
 export default function RegisterPage() {
 	const { post, loading, response } = useFetch(process.env.BASE_URL);
+	const [, setUser] = useContext(UsernameContext);
 	const history = useHistory();
 
 	const register = async e => {
@@ -16,6 +18,7 @@ export default function RegisterPage() {
 			if (response.ok) {
 				localStorage.setItem("token", data.jwt);
 				localStorage.setItem("authority", data.authority);
+				setUser(e.target.driver.value);
 				history.replace("/");
 			} else {
 				toast.error(response.data.message);

@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Link, useHistory, Redirect } from "react-router-dom";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import useFetch from "use-http";
+import UsernameContext from "../context/UsernameContext";
 
 export default function LoginPage() {
 	const { post, loading, response } = useFetch(process.env.BASE_URL);
+	const [, setUser] = useContext(UsernameContext);
 	const history = useHistory();
 	const login = async e => {
 		e.preventDefault();
@@ -18,6 +20,7 @@ export default function LoginPage() {
 				}
 				localStorage.setItem("token", data.jwt);
 				localStorage.setItem("authority", data.authority);
+				setUser(e.target.username.value);
 				history.replace(data.authority === "ADMIN" ? "/admin" : "/");
 			} else {
 				toast.error(response.data.message);
