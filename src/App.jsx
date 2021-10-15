@@ -8,6 +8,7 @@ import RegisterPage from "./pages/RegisterPage";
 import ErrorPage from "./pages/ErrorPage";
 import ViolationPageRouter from "./components/ViolationPageRouter";
 import "./styles/styles.scss";
+import AdminPage from "./pages/AdminPage";
 
 export function App() {
 	return (
@@ -21,6 +22,7 @@ export function App() {
 			<main>
 				<Switch>
 					<Route exact path="/" component={UserPage} />
+					<Route exact path="/admin" component={AdminPage} />
 					<Route exact path="/login" component={LoginPage} />
 					<Route exact path="/register" component={RegisterPage} />
 					<Route
