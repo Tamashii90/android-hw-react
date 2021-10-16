@@ -1,26 +1,38 @@
-import React, { useContext, useEffect } from "react";
-import { useFetch } from "use-http";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useHistory } from "react-router";
-import { ToastContainer, toast, Zoom } from "react-toastify";
+import { toast } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
+import MyApi from "../utils/MyApi";
 
 export default function ViolationPageAdmin() {
 	const [, setList] = useContext(ListContext);
+	const [types, setTypes] = useState([]);
+	const [violation, setViolation] = useState([]);
 	const pageLocation = useLocation();
 	const history = useHistory();
-	const {
-		put,
-		get,
-		cache,
-		loading,
-		response,
-		data: violation = {}
-	} = useFetch(process.env.BASE_URL, {
-		headers: {
-			"Authorization": `Bearer ${localStorage.getItem("token")}`
+	const { get, cache, loading: pageLoader, response } = new MyApi();
+	const { put, loading: btnLoader } = new MyApi();
+	useEffect(async () => {
+		cache.clear();
+		try {
+			const violation = await get(pageLocation.pathname);
+			if (response.ok) {
+				setViolation(violation);
+			} else {
+				toast.error(response.data?.message);
+			}
+			const types = await get("/api/violations");
+			if (response.ok) {
+				setTypes(types);
+			} else {
+				toast.error(response.data?.message);
+			}
+		} catch (e) {
+			toast.error("Network Error");
 		}
-	});
+	}, []);
+
 	const updateViolation = async e => {
 		e.preventDefault();
 		const form = new FormData();
@@ -65,20 +77,11 @@ export default function ViolationPageAdmin() {
 			toast.error("Network Error");
 		}
 	};
+	console.log("render!");
 
-	useEffect(async () => {
-		try {
-			await get(pageLocation.pathname);
-			if (!response.ok) {
-				toast.error(response.data?.message);
-			}
-		} catch (e) {
-			toast.error("Network Error");
-		}
-	}, []);
 	return (
 		<>
-			{loading && <h2>Loading..</h2>}
+			{pageLoader && <h2>Loading..</h2>}
 			{response.ok && (
 				<div>
 					<form onSubmit={updateViolation}>
@@ -117,13 +120,21 @@ export default function ViolationPageAdmin() {
 						</div>
 						<div className="form-group">
 							<label htmlFor="type">Type</label>
-							<input
-								className="form-control"
-								type="text"
-								defaultValue={violation.type}
-								id="type"
+							<select
+								className="custom-select form-control"
 								name="type"
-							/>
+								id="type"
+								required
+							>
+								{types.map((type, idx) => (
+									<option
+										key={idx}
+										selected={violation.type === type}
+									>
+										{type}
+									</option>
+								))}
+							</select>
 						</div>
 						<div className="form-group">
 							<label htmlFor="date">Date</label>
@@ -160,7 +171,7 @@ export default function ViolationPageAdmin() {
 						</div>
 						<button type="submit" className="btn btn-primary">
 							Update
-							{loading && (
+							{btnLoader && (
 								<span className="ms-3 spinner-grow spinner-grow-sm"></span>
 							)}
 						</button>
