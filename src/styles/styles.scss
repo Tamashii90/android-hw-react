@@ -7,13 +7,10 @@ $dark: #6c757d;
 $danger: #ff006c;
 
 .form-container {
-	padding: 3rem;
 	background-color: $primary;
-	width: 80%;
 	color: white;
 	box-shadow: 1px 1px 9px 10px #9eb7e5;
 	border-radius: 10px;
-	max-width: 400px;
 	button[type="submit"] {
 		width: 100%;
 		background: white;
@@ -22,7 +19,15 @@ $danger: #ff006c;
 		border: 2px solid $dark;
 	}
 	label {
-		padding-left: 0;
+		@media only screen and (max-width: 576px) {
+			text-align: center;
+		}
+	}
+	.big-label {
+		@media only screen and (max-width: 1200px) and (min-width: 577px) {
+			position: relative;
+			top: -10px;
+		}
 	}
 	.form-group {
 		margin-top: 1rem;

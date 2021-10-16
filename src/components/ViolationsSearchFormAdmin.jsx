@@ -33,62 +33,102 @@ export default function SearchForm() {
 		}
 	};
 	return (
-		<div className="form-container container mb-5">
+		<div className="form-container container my-5">
 			<form onSubmit={search}>
-				<h2 className="text-center">Find Violations</h2>
-				<div className="form-group">
-					<label htmlFor="driver">Driver</label>
-					<input
-						className="form-control"
-						type="text"
-						id="driver"
-						name="driver"
-					/>
+				<div className="row">
+					<h2 className="text-center p-4">Find Violations</h2>
+
+					<div className="form-group col-sm-6 row">
+						<label
+							className="col-form-label col-sm-3 big-label"
+							htmlFor="plugedNumber"
+						>
+							Pluged Number
+						</label>
+						<div className="col-sm-9">
+							<input
+								className="form-control"
+								minLength="6"
+								maxLength="6"
+								type="text"
+								id="plugedNumber"
+								name="plugedNumber"
+							/>
+						</div>
+					</div>
+					<div className="form-group col-sm-6 row">
+						<label
+							className="col-form-label col-sm-3"
+							htmlFor="driver"
+						>
+							Driver
+						</label>
+						<div className="col-sm-9">
+							<input
+								className="form-control"
+								type="text"
+								id="driver"
+								name="driver"
+							/>
+						</div>
+					</div>
+					<div className="form-group col-sm-6 row">
+						<label
+							className="col-form-label col-sm-3"
+							htmlFor="location"
+						>
+							Location
+						</label>
+						<div className="col-sm-9">
+							<input
+								className="form-control"
+								type="text"
+								id="location"
+								name="location"
+							/>
+						</div>
+					</div>
+					<div className="form-group col-sm-6 row">
+						<label
+							className="col-form-label col-sm-3 big-label"
+							htmlFor="fromDate"
+						>
+							From Date
+						</label>
+						<div className="col-sm-9">
+							<input
+								className="form-control"
+								type="date"
+								id="fromDate"
+								name="fromDate"
+							/>
+						</div>
+					</div>
+					<div className="form-group col-sm-6 row">
+						<label
+							className="col-form-label col-sm-3 big-label"
+							htmlFor="toDate"
+						>
+							To Date
+						</label>
+						<div className="col-sm-9">
+							<input
+								className="form-control"
+								type="date"
+								id="toDate"
+								name="toDate"
+							/>
+						</div>
+					</div>
+					<div className="col-12">
+						<button type="submit" className="btn btn-primary">
+							Search
+							{loading && (
+								<span className="ms-3 spinner-grow spinner-grow-sm"></span>
+							)}
+						</button>
+					</div>
 				</div>
-				<div className="form-group">
-					<label htmlFor="plugedNumber">Pluged Number</label>
-					<input
-						className="form-control"
-						minLength="6"
-						maxLength="6"
-						type="text"
-						id="plugedNumber"
-						name="plugedNumber"
-					/>
-				</div>
-				<div className="form-group">
-					<label htmlFor="location">Location</label>
-					<input
-						className="form-control"
-						type="text"
-						id="location"
-						name="location"
-					/>
-				</div>
-				<div className="form-group">
-					<label htmlFor="fromDate">From Date</label>
-					<input
-						className="form-control"
-						type="date"
-						id="fromDate"
-						name="fromDate"
-					/>
-				</div>
-				<div className="form-group">
-					<label htmlFor="toDate">To Date</label>
-					<input
-						className="form-control"
-						type="date"
-						id="toDate"
-						name="toDate"
-					/>
-				</div>
-				<button type="submit" className="btn btn-primary">
-					Search
-					{loading && (
-						<span className="ml-3 spinner-grow spinner-grow-sm"></span>
-					)}
-				</button>
 			</form>
 		</div>
 	);
