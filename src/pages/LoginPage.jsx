@@ -1,11 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { Link, useHistory, Redirect } from "react-router-dom";
 import { ToastContainer, toast, Zoom } from "react-toastify";
-import useFetch from "use-http";
 import UsernameContext from "../context/UsernameContext";
+import MyApi from "../utils/MyApi";
 
 export default function LoginPage() {
-	const { post, loading, response } = useFetch(process.env.BASE_URL);
+	const { post, loading, response } = new MyApi();
 	const [, setUser] = useContext(UsernameContext);
 	const history = useHistory();
 	const login = async e => {

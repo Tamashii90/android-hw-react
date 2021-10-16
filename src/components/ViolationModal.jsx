@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useFetch } from "use-http";
+import MyApi from "../utils/MyApi";
 
 export default function ViolationModal({ plugedNumber, showModal }) {
 	const [types, setTypes] = useState([]);
-	const { get, post, loading, response } = useFetch(process.env.BASE_URL, {
-		headers: {
-			"Authorization": `Bearer ${localStorage.getItem("token")}`
-		}
-	});
+	const { get, post, loading, response } = new MyApi();
 	// prevent scroll when modal is visible
 	document.body.style.overflow = "hidden";
 

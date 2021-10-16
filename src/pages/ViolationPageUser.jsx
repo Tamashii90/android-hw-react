@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import { useFetch } from "use-http";
 import { useHistory, useLocation } from "react-router";
 import { toast } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
+import MyApi from "../utils/MyApi";
 
 export default function ViolationPageUser() {
 	const {
@@ -13,11 +13,7 @@ export default function ViolationPageUser() {
 		response,
 		cache,
 		data: violation = {}
-	} = useFetch(process.env.BASE_URL, {
-		headers: {
-			"Authorization": `Bearer ${localStorage.getItem("token")}`
-		}
-	});
+	} = new MyApi();
 	const [, setList] = useContext(ListContext);
 	const location = useLocation();
 	const history = useHistory();
@@ -26,6 +22,7 @@ export default function ViolationPageUser() {
 			await post(`/api/violations-log/pay/${violation.id}`);
 			if (response.ok) {
 				refreshViolationsList();
+				toast.success("Success!");
 			} else {
 				toast.error(response.data?.message);
 			}

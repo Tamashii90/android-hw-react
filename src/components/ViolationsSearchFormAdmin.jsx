@@ -1,16 +1,12 @@
 import React, { useContext } from "react";
-import useFetch from "use-http";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
+import MyApi from "../utils/MyApi";
 
 export default function SearchForm() {
 	const [, setList] = useContext(ListContext);
-	const { get, loading, response } = useFetch(process.env.BASE_URL, {
-		headers: {
-			"Authorization": `Bearer ${localStorage.getItem("token")}`
-		}
-	});
+	const { get, loading, response } = new MyApi();
 	const search = async e => {
 		e.preventDefault();
 		const driver = e.target.driver.value;

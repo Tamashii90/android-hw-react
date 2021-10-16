@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Link, useHistory, Redirect } from "react-router-dom";
-import { useFetch } from "use-http";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import UsernameContext from "../context/UsernameContext";
+import MyApi from "../utils/MyApi";
 
 export default function RegisterPage() {
-	const { post, loading, response } = useFetch(process.env.BASE_URL);
+	const { post, loading, response } = new MyApi();
 	const [, setUser] = useContext(UsernameContext);
 	const history = useHistory();
 

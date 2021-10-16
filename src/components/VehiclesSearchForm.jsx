@@ -1,13 +1,9 @@
 import React from "react";
-import { useFetch } from "use-http";
 import { ToastContainer, toast, Zoom } from "react-toastify";
+import MyApi from "../utils/MyApi";
 
 export default function VehiclesSearchForm({ setVehicle }) {
-	const { get, loading, response } = useFetch(process.env.BASE_URL, {
-		headers: {
-			"Authorization": `Bearer ${localStorage.getItem("token")}`
-		}
-	});
+	const { get, loading, response } = new MyApi();
 	const findVehicle = async e => {
 		e.preventDefault();
 		setVehicle(null);

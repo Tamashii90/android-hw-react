@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-import { useFetch } from "use-http";
 import { useHistory, useLocation } from "react-router";
 import { ToastContainer, toast, Zoom } from "react-toastify";
+import MyApi from "../utils/MyApi";
 import ViolationModal from "./ViolationModal";
 
 export default function VehicleDetails({ vehicle, setVehicle }) {
-	const { post, loading, response, cache } = useFetch(process.env.BASE_URL, {
-		headers: {
-			"Authorization": `Bearer ${localStorage.getItem("token")}`
-		}
-	});
+	const { post, loading, response, cache } = new MyApi();
 	const location = useLocation();
 	const history = useHistory();
 	const [modal, showModal] = useState(false);
