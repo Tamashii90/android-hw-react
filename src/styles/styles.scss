@@ -7,30 +7,43 @@ $dark: #6c757d;
 $danger: #ff006c;
 
 .form-container {
-  padding: 3rem;
-  background-color: $primary;
-  width: 80%;
-  color: white;
-  box-shadow: 1px 1px 9px 10px #9eb7e5;
-  border-radius: 10px;
-  max-width: 400px;
-  button[type="submit"] {
-    width: 100%;
-    background: white;
-    color: black;
-    margin: 2rem 0;
-    border: 2px solid $dark;
-  }
-  label {
-    padding-left: 0;
-  }
-  .form-group {
-    margin-top: 1rem;
-  }
-  a {
-    color: #4400ff;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+	padding: 3rem;
+	background-color: $primary;
+	width: 80%;
+	color: white;
+	box-shadow: 1px 1px 9px 10px #9eb7e5;
+	border-radius: 10px;
+	max-width: 400px;
+	button[type="submit"] {
+		width: 100%;
+		background: white;
+		color: black;
+		margin: 2rem 0;
+		border: 2px solid $dark;
+	}
+	label {
+		padding-left: 0;
+	}
+	.form-group {
+		margin-top: 1rem;
+	}
+	a {
+		color: #4400ff;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+}
+
+.overlay {
+	background: #000000a8;
+	form {
+		max-width: 500px;
+		border-radius: 10px;
+		margin: 1.75rem auto;
+		padding: 45px;
+		.form-group {
+			margin-top: 1rem;
+		}
+	}
 }

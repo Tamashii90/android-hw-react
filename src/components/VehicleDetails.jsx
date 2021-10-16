@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState } from "react";
 import { useFetch } from "use-http";
 import { useHistory, useLocation } from "react-router";
 import { ToastContainer, toast, Zoom } from "react-toastify";
+import ViolationModal from "./ViolationModal";
 
 export default function VehicleDetails({ vehicle, setVehicle }) {
 	const { post, loading, response, cache } = useFetch(process.env.BASE_URL, {
@@ -11,21 +12,7 @@ export default function VehicleDetails({ vehicle, setVehicle }) {
 	});
 	const location = useLocation();
 	const history = useHistory();
-	const addViolation = async e => {
-		// display modal to submit violation
-		e.preventDefault();
-		return;
-		try {
-			await post(`/api/violations-log`);
-			if (response.ok) {
-				// refreshViolationsList();
-			} else {
-				toast.error(response.data?.message);
-			}
-		} catch (e) {
-			toast.error("Network Error");
-		}
-	};
+	const [modal, showModal] = useState(false);
 
 	const crossOutUnCrossOut = async () => {
 		const reqObj = {
@@ -57,7 +44,10 @@ export default function VehicleDetails({ vehicle, setVehicle }) {
 					<li>{vehicle.category}</li>
 					<li>{vehicle.plugedNumber}</li>
 				</ul>
-				<button className="btn btn-primary" onClick={addViolation}>
+				<button
+					className="btn btn-primary"
+					onClick={() => showModal(true)}
+				>
 					Add a Violation to The Vehicle
 				</button>
 				<button
@@ -72,17 +62,12 @@ export default function VehicleDetails({ vehicle, setVehicle }) {
 					)}
 				</button>
 			</div>
-			<ToastContainer
-				position="top-center"
-				theme="colored"
-				transition={Zoom}
-				autoClose={1000}
-				hideProgressBar
-				newestOnTop={false}
-				rtl={false}
-				pauseOnHover
-				closeButton={false}
-			/>
+			{modal && (
+				<ViolationModal
+					plugedNumber={vehicle.plugedNumber}
+					showModal={showModal}
+				/>
+			)}
 		</>
 	);
 }
