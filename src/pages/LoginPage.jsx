@@ -69,17 +69,6 @@ export default function LoginPage() {
 				</form>
 				<Link to="/register">Don't have an account ?</Link>
 			</div>
-			<ToastContainer
-				position="top-center"
-				theme="colored"
-				transition={Zoom}
-				autoClose={1000}
-				hideProgressBar
-				newestOnTop={false}
-				rtl={false}
-				pauseOnHover
-				closeButton={false}
-			/>
 		</>
 	);
 }

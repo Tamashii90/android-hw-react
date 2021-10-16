@@ -86,7 +86,7 @@ export default function ViolationPageAdmin() {
 						<div className="form-group">
 							<label htmlFor="driver">Driver</label>
 							<input
-								className="form-control"
+								className="form-control-plaintext"
 								type="text"
 								defaultValue={violation.driver}
 								readOnly
@@ -97,7 +97,7 @@ export default function ViolationPageAdmin() {
 						<div className="form-group">
 							<label htmlFor="plugedNumber">Pluged Number</label>
 							<input
-								className="form-control"
+								className="form-control-plaintext"
 								defaultValue={violation.plugedNumber}
 								readOnly
 								type="text"
@@ -138,7 +138,7 @@ export default function ViolationPageAdmin() {
 						<div className="form-group">
 							<label htmlFor="tax">Tax</label>
 							<input
-								className="form-control"
+								className="form-control-plaintext"
 								type="text"
 								defaultValue={violation.tax}
 								id="tax"
@@ -161,23 +161,12 @@ export default function ViolationPageAdmin() {
 						<button type="submit" className="btn btn-primary">
 							Update
 							{loading && (
-								<span className="ml-3 spinner-grow spinner-grow-sm"></span>
+								<span className="ms-3 spinner-grow spinner-grow-sm"></span>
 							)}
 						</button>
 					</form>
 				</div>
 			)}
-			<ToastContainer
-				position="top-center"
-				theme="colored"
-				transition={Zoom}
-				autoClose={1000}
-				hideProgressBar
-				newestOnTop={false}
-				rtl={false}
-				pauseOnHover
-				closeButton={false}
-			/>
 		</>
 	);
 }

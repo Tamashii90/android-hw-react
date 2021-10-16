@@ -46,17 +46,6 @@ export default function VehiclesSearchForm({ setVehicle }) {
 					)}
 				</button>
 			</form>
-			<ToastContainer
-				position="top-center"
-				theme="colored"
-				transition={Zoom}
-				autoClose={1400}
-				hideProgressBar
-				newestOnTop={false}
-				rtl={false}
-				pauseOnHover
-				closeButton={false}
-			/>
 		</div>
 	);
 }

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useFetch } from "use-http";
 import { useHistory, useLocation } from "react-router";
-import { ToastContainer, toast, Zoom } from "react-toastify";
+import { toast } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
 
@@ -88,17 +88,6 @@ export default function ViolationPageUser() {
 					</button>
 				</div>
 			)}
-			<ToastContainer
-				position="top-center"
-				theme="colored"
-				transition={Zoom}
-				autoClose={1000}
-				hideProgressBar
-				newestOnTop={false}
-				rtl={false}
-				pauseOnHover
-				closeButton={false}
-			/>
 		</>
 	);
 }

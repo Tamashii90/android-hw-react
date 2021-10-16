@@ -105,17 +105,6 @@ export default function RegisterPage() {
 				</button>
 			</form>
 			<Link to="/login">Already a member ?</Link>
-			<ToastContainer
-				position="top-center"
-				theme="colored"
-				transition={Flip}
-				autoClose={1200}
-				hideProgressBar
-				newestOnTop={false}
-				rtl={false}
-				pauseOnHover
-				closeButton={false}
-			/>
 		</div>
 	);
 }
