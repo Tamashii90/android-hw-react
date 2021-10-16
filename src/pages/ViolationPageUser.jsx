@@ -4,16 +4,17 @@ import { toast } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
 import MyApi from "../utils/MyApi";
+import ProgressBar from "../components/ProgressBar";
 
 export default function ViolationPageUser() {
 	const {
 		get,
-		post,
-		loading,
+		loading: pageLoader,
 		response,
 		cache,
 		data: violation = {}
 	} = new MyApi();
+	const { post, loading } = new MyApi();
 	const [, setList] = useContext(ListContext);
 	const location = useLocation();
 	const history = useHistory();
@@ -65,8 +66,8 @@ export default function ViolationPageUser() {
 	}, []);
 	return (
 		<>
-			{loading && <h2>Loading..</h2>}
-			{!loading && response.ok && (
+			{pageLoader && <ProgressBar />}
+			{!pageLoader && response.ok && (
 				<div>
 					<ul>
 						<li>{violation.date}</li>
@@ -82,6 +83,9 @@ export default function ViolationPageUser() {
 						onClick={payForViolation}
 					>
 						Pay
+						{loading && (
+							<span className="ms-3 spinner-grow spinner-grow-sm"></span>
+						)}
 					</button>
 				</div>
 			)}

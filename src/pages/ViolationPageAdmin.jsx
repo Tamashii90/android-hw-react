@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
 import MyApi from "../utils/MyApi";
+import ProgressBar from "../components/ProgressBar";
 
 export default function ViolationPageAdmin() {
 	const [, setList] = useContext(ListContext);
@@ -81,7 +82,7 @@ export default function ViolationPageAdmin() {
 
 	return (
 		<>
-			{pageLoader && <h2>Loading..</h2>}
+			{pageLoader && <ProgressBar />}
 			{response.ok && (
 				<div>
 					<form onSubmit={updateViolation}>

@@ -4,14 +4,15 @@ import MyApi from "../utils/MyApi";
 
 export default function ViolationModal({ plugedNumber, showModal }) {
 	const [types, setTypes] = useState([]);
-	const { get, post, loading, response } = new MyApi();
+	const { post, loading, response } = new MyApi();
+	const { get, response: fetchResponse } = new MyApi();
 	// prevent scroll when modal is visible
 	document.body.style.overflow = "hidden";
 
 	useEffect(async () => {
 		try {
 			const data = await get("/api/violations");
-			if (response.ok) {
+			if (fetchResponse.ok) {
 				setTypes(data);
 			}
 		} catch (e) {
