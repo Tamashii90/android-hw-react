@@ -27,7 +27,7 @@ export function App() {
 					<Route exact path="/register" component={RegisterPage} />
 					<Route
 						exact
-						path="/api/violations-log/:id"
+						path="/violations-log/:id"
 						component={ViolationPageRouter}
 					/>
 					<Route exact path="/*" component={ErrorPage} />

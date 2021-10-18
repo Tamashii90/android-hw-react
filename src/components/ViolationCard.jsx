@@ -12,7 +12,7 @@ export default function ViolationCard({ card }) {
 			<li>{card.type}</li>
 			<li>{card.plugedNumber}</li>
 			<li>
-				<Link to={`/api/violations-log/${card.id}`}>Show Details</Link>
+				<Link to={`/violations-log/${card.id}`}>Show Details</Link>
 			</li>
 		</ul>
 	);

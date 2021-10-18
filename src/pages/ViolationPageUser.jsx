@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { useHistory, useLocation } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { toast } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
@@ -16,7 +16,7 @@ export default function ViolationPageUser() {
 	} = new MyApi();
 	const { post, loading } = new MyApi();
 	const [, setList] = useContext(ListContext);
-	const location = useLocation();
+	const { id: violationId } = useParams();
 	const history = useHistory();
 	const payForViolation = async e => {
 		try {
@@ -56,7 +56,7 @@ export default function ViolationPageUser() {
 
 	useEffect(async () => {
 		try {
-			await get(location.pathname);
+			await get(`/api/violations-log/${violationId}`);
 			if (!response.ok) {
 				toast.error(response.data?.message);
 			}

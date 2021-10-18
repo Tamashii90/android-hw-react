@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLocation, useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { toast } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
@@ -10,14 +10,14 @@ export default function ViolationPageAdmin() {
 	const [, setList] = useContext(ListContext);
 	const [types, setTypes] = useState([]);
 	const [violation, setViolation] = useState([]);
-	const pageLocation = useLocation();
+	const { id: violationId } = useParams();
 	const history = useHistory();
 	const { get, cache, loading: pageLoader, response } = new MyApi();
 	const { put, loading: btnLoader } = new MyApi();
 	useEffect(async () => {
 		cache.clear();
 		try {
-			const violation = await get(pageLocation.pathname);
+			const violation = await get(`/api/violations-log/${violationId}`);
 			if (response.ok) {
 				setViolation(violation);
 			} else {
@@ -78,7 +78,6 @@ export default function ViolationPageAdmin() {
 			toast.error("Network Error");
 		}
 	};
-	console.log("render!");
 
 	return (
 		<>

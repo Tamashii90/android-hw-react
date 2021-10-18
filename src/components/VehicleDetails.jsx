@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { useHistory, useLocation } from "react-router";
-import { ToastContainer, toast, Zoom } from "react-toastify";
+import { toast } from "react-toastify";
 import MyApi from "../utils/MyApi";
 import ViolationModal from "./ViolationModal";
 
 export default function VehicleDetails({ vehicle, setVehicle }) {
 	const { post, loading, response, cache } = new MyApi();
-	const location = useLocation();
-	const history = useHistory();
 	const [modal, showModal] = useState(false);
 
 	const crossOutUnCrossOut = async () => {
