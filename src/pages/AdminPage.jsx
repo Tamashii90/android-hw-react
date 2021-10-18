@@ -6,12 +6,12 @@ import VehicleDetails from "../components/VehicleDetails";
 import ListContext from "../context/ListContext";
 
 export default function AdminPage() {
-	const [, setList] = useContext(ListContext);
+	const [list, setList] = useContext(ListContext);
 	const [violations, setViolations] = useState(true);
 	const [vehicle, setVehicle] = useState(null);
 
 	const transitionToVehicles = () => {
-		setList([]);
+		setList(null);
 		setViolations(false);
 	};
 	const transitionToViolations = () => {
@@ -34,14 +34,15 @@ export default function AdminPage() {
 				</button>
 			</div>
 			{violations ? (
-				<ViolationsSearchForm />
+				<>
+					<ViolationsSearchForm />
+					{list && <ViolationsList />}
+				</>
 			) : (
-				<VehiclesSearchForm setVehicle={setVehicle} />
-			)}
-			{violations ? (
-				<ViolationsList />
-			) : (
-				<VehicleDetails vehicle={vehicle} setVehicle={setVehicle} />
+				<>
+					<VehiclesSearchForm setVehicle={setVehicle} />
+					<VehicleDetails vehicle={vehicle} setVehicle={setVehicle} />
+				</>
 			)}
 		</>
 	);

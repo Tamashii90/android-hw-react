@@ -8,12 +8,10 @@ export default function ViolationsList() {
 	const count = list.length;
 	return (
 		<>
-			{!!list.length && (
-				<h3>
-					<div className="text-right">{totalTax}</div>
-					<div className="text-left">Found {count} violations.</div>
-				</h3>
-			)}
+			<h3>
+				<div className="text-left">Found {count} violations.</div>
+				{!!count && <div className="text-right">{totalTax}</div>}
+			</h3>
 			{list.map(el => (
 				<ViolationCard key={el.id} card={el} />
 			))}

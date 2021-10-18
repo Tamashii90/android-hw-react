@@ -11,7 +11,7 @@ export default function Header() {
 
 	const logOut = () => {
 		localStorage.clear();
-		setList([]);
+		setList(null);
 		setUser("");
 		history.replace("/login");
 	};
