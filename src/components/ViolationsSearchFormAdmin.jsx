@@ -25,6 +25,7 @@ export default function SearchForm() {
 				searchCriteria.fromDate = fromDate;
 				searchCriteria.toDate = toDate;
 				setList(data);
+				document.getElementById("search-div").scrollIntoView();
 			} else {
 				toast.error(response.data.message);
 			}

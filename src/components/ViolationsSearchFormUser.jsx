@@ -5,7 +5,7 @@ import ListContext from "../context/ListContext";
 import MyApi from "../utils/MyApi";
 
 export default function SearchForm() {
-	const [list, setList] = useContext(ListContext);
+	const [, setList] = useContext(ListContext);
 	const { get, loading, response } = new MyApi();
 	const search = async e => {
 		e.preventDefault();
@@ -22,6 +22,7 @@ export default function SearchForm() {
 				searchCriteria.fromDate = fromDate;
 				searchCriteria.toDate = toDate;
 				setList(data);
+				document.getElementById("search-div").scrollIntoView();
 			} else {
 				toast.error(response.data.message);
 			}
@@ -32,7 +33,7 @@ export default function SearchForm() {
 	return (
 		<div className="form-container container mb-5">
 			<form onSubmit={search}>
-				<h2 className="text-center">Find Violations</h2>
+				<h2 className="text-center">Find Unpaid Violations</h2>
 				<div className="form-group">
 					<label htmlFor="location">Location</label>
 					<input

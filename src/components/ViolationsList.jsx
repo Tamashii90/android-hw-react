@@ -9,7 +9,9 @@ export default function ViolationsList() {
 	return (
 		<>
 			<h3>
-				<div className="text-left">Found {count} violations.</div>
+				<div id="search-div" className="text-left">
+					Found {count} violations.
+				</div>
 				{!!count && <div className="text-right">{totalTax}</div>}
 			</h3>
 			{list.map(el => (
