@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useHistory, Redirect } from "react-router-dom";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import UsernameContext from "../context/UsernameContext";
@@ -6,8 +6,17 @@ import MyApi from "../utils/MyApi";
 
 export default function RegisterPage() {
 	const { post, loading, response } = new MyApi();
+	const { get, data: types = [] } = new MyApi();
 	const [, setUser] = useContext(UsernameContext);
 	const history = useHistory();
+
+	useEffect(async () => {
+		try {
+			await get("/api/vehicles/types");
+		} catch (e) {
+			toast.error("Network Error");
+		}
+	}, []);
 
 	const register = async e => {
 		e.preventDefault();
@@ -70,22 +79,17 @@ export default function RegisterPage() {
 					/>
 				</div>
 				<div className="form-group">
-					<label htmlFor="category">Category</label>
-					<input
-						className="form-control"
-						id="category"
-						name="category"
-						required
-					/>
-				</div>
-				<div className="form-group">
 					<label htmlFor="type">Type</label>
-					<input
-						className="form-control"
-						id="type"
+					<select
+						className="custom-select form-control"
 						name="type"
+						id="type"
 						required
-					/>
+					>
+						{types.map((type, idx) => (
+							<option key={idx}>{type}</option>
+						))}
+					</select>
 				</div>
 				<div className="form-group">
 					<label htmlFor="productionDate">Production Date</label>

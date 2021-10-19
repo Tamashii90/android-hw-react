@@ -34,7 +34,6 @@ export default function VehicleDetails({ vehicle, setVehicle }) {
 					<li>{String(vehicle.crossOut)}</li>
 					<li>{vehicle.driver}</li>
 					<li>{vehicle.type}</li>
-					<li>{vehicle.category}</li>
 					<li>{vehicle.plugedNumber}</li>
 				</ul>
 				<button
