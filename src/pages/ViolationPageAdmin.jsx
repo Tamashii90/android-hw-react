@@ -84,8 +84,10 @@ export default function ViolationPageAdmin() {
 			{pageLoader && <ProgressBar />}
 			{response.ok && (
 				<div>
+					<h2 className="text-secondary text-center">
+						Violation Details
+					</h2>
 					<form onSubmit={updateViolation}>
-						<h2 className="text-center">Violation Details</h2>
 						<div className="form-group">
 							<label htmlFor="driver">Driver</label>
 							<input

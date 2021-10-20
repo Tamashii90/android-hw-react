@@ -42,7 +42,7 @@ export default function RegisterPage() {
 	}
 	return (
 		<div className="container form-container mb-5">
-			<h2 className="text-center">Register An Account</h2>
+			<h2 className="text-center text-secondary">Register An Account</h2>
 			<form onSubmit={register}>
 				<div className="form-group">
 					<label htmlFor="driver">Driver</label>
@@ -104,7 +104,7 @@ export default function RegisterPage() {
 				<button type="submit" className="btn btn-primary">
 					Register
 					{loading && (
-						<span className="ms-2 spinner-grow spinner-grow-sm"></span>
+						<span className="ms-2 text-secondary spinner-grow spinner-grow-sm"></span>
 					)}
 				</button>
 			</form>

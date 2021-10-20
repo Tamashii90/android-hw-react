@@ -33,7 +33,9 @@ export default function SearchForm() {
 	return (
 		<div className="form-container container mb-5">
 			<form onSubmit={search}>
-				<h2 className="text-center">Find Unpaid Violations</h2>
+				<h2 className="text-center text-secondary">
+					Find Unpaid Violations
+				</h2>
 				<div className="form-group">
 					<label htmlFor="location">Location</label>
 					<input

@@ -1,4 +1,4 @@
-$primary: #022f60;
+$primary: #022a55;
 $secondary: #f35e04;
 $warning: #ffa200;
 $dark: #6c757d;
@@ -6,24 +6,43 @@ $danger: #ff006c;
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-.secondary {
-	color: $secondary;
+body {
+	background-color: #252222;
+	color: white;
+}
+
+h2.text-secondary {
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .violation-card {
 	border-radius: 10px;
-	box-shadow: 0px 0px 2px 4px $primary;
+	border: 1px solid black;
 	cursor: pointer;
+	transition: 0.1s box-shadow linear;
 	&:hover {
-		box-shadow: 0px 0px 2px 4px $secondary;
+		box-shadow: 0px 0px 4px 5px $secondary;
 	}
 }
 
-.form-container {
-	background-color: $primary;
+.btn-primary:hover {
+	color: $secondary;
+}
+
+input:read-only {
 	color: white;
-	box-shadow: 1px 1px 9px 10px #9eb7e5;
+}
+
+.form-container form {
+	background-color: $primary;
+	border: 1px solid black;
+	color: white;
 	border-radius: 10px;
+	label {
+		// @media (max-width: 767px) {
+		text-align: center;
+		// }
+	}
 	button[type="submit"] {
 		width: 100%;
 		background: white;
@@ -33,9 +52,14 @@ $danger: #ff006c;
 	}
 	.form-group {
 		margin-top: 1rem;
+		@media (max-width: 767px) {
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
-	a {
-		color: #4400ff;
+	a:link {
+		color: $secondary;
+		text-decoration: none;
 	}
 	a:hover {
 		text-decoration: underline;
@@ -45,7 +69,7 @@ $danger: #ff006c;
 .overlay {
 	background: #000000a8;
 	form {
-		max-width: 500px;
+		max-width: 650px;
 		border-radius: 10px;
 		margin: 1.75rem auto;
 		padding: 45px;
@@ -56,9 +80,9 @@ $danger: #ff006c;
 }
 
 .progress-bar {
-	height: 7px;
+	height: 5px;
 	border-radius: 100px;
-	background-color: rgba(5, 114, 206, 0.2);
+	background-color: $secondary;
 	width: 100%;
 	position: fixed;
 	top: 0;

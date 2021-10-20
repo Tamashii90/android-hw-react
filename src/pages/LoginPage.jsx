@@ -36,7 +36,9 @@ export default function LoginPage() {
 	return (
 		<>
 			<div className="form-container container mb-5">
-				<h2 className="text-center">Log In to Your Account</h2>
+				<h2 className="text-center text-secondary">
+					Log In to Your Account
+				</h2>
 				<form onSubmit={login}>
 					<div className="form-group">
 						<label htmlFor="username">Username</label>
@@ -63,7 +65,7 @@ export default function LoginPage() {
 					<button type="submit" className="btn btn-primary">
 						Log In
 						{loading && (
-							<span className="ms-2 spinner-grow spinner-grow-sm"></span>
+							<span className="ms-2 text-secondary spinner-grow spinner-grow-sm"></span>
 						)}
 					</button>
 				</form>

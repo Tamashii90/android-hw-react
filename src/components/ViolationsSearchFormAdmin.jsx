@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ToastContainer, toast, Zoom } from "react-toastify";
+import { toast } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
 import MyApi from "../utils/MyApi";
@@ -37,11 +37,12 @@ export default function SearchForm() {
 		<div className="form-container container my-5">
 			<form onSubmit={search}>
 				<div className="row">
-					<h2 className="text-center p-4">Find Violations</h2>
-
+					<h2 className="text-center text-secondary p-4">
+						Find Violations
+					</h2>
 					<div className="form-group row">
 						<label
-							className="col-form-label col-md-3 text-md-left text-center"
+							className="col-form-label col-md-3"
 							htmlFor="plugedNumber"
 						>
 							Pluged Number
@@ -59,7 +60,7 @@ export default function SearchForm() {
 					</div>
 					<div className="form-group row">
 						<label
-							className="col-form-label col-md-3 text-md-left text-center"
+							className="col-form-label col-md-3"
 							htmlFor="driver"
 						>
 							Driver
@@ -75,7 +76,7 @@ export default function SearchForm() {
 					</div>
 					<div className="form-group row">
 						<label
-							className="col-form-label col-md-3 text-md-left text-center"
+							className="col-form-label col-md-3"
 							htmlFor="location"
 						>
 							Location
@@ -91,7 +92,7 @@ export default function SearchForm() {
 					</div>
 					<div className="form-group row">
 						<label
-							className="col-form-label col-md-3 text-md-left text-center big-label"
+							className="col-form-label col-md-3 "
 							htmlFor="fromDate"
 						>
 							From Date
@@ -107,7 +108,7 @@ export default function SearchForm() {
 					</div>
 					<div className="form-group row">
 						<label
-							className="col-form-label col-md-3 text-md-left text-center big-label"
+							className="col-form-label col-md-3 "
 							htmlFor="toDate"
 						>
 							To Date

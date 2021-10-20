@@ -46,15 +46,15 @@ export default function ViolationModal({ plugedNumber, showModal }) {
 
 	return (
 		<div className="overlay fixed-top w-100 h-100" onClick={closeModal}>
-			<form onSubmit={submitViolation} className="bg-white">
+			<form onSubmit={submitViolation} className="text-black bg-white">
 				<div className="form-group row">
 					<label
 						htmlFor="plugedNumber"
-						className="col-sm-2 col-form-label"
+						className="col-sm-3 col-form-label"
 					>
 						Pluged Number
 					</label>
-					<div className="col-sm-10">
+					<div className="col-sm-9">
 						<input
 							type="text"
 							readOnly
@@ -68,11 +68,11 @@ export default function ViolationModal({ plugedNumber, showModal }) {
 				<div className="form-group row">
 					<label
 						htmlFor="violationType"
-						className="col-sm-2 col-form-label"
+						className="col-sm-3 col-form-label"
 					>
 						Type
 					</label>
-					<div className="col-sm-10">
+					<div className="col-sm-9">
 						<select
 							className="custom-select form-control"
 							name="violationType"
@@ -88,11 +88,11 @@ export default function ViolationModal({ plugedNumber, showModal }) {
 				<div className="form-group row">
 					<label
 						htmlFor="location"
-						className="col-sm-2 col-form-label"
+						className="col-sm-3 col-form-label"
 					>
 						Location
 					</label>
-					<div className="col-sm-10">
+					<div className="col-sm-9">
 						<input
 							type="text"
 							className="form-control"

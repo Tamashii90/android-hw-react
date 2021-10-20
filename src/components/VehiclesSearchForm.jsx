@@ -21,7 +21,7 @@ export default function VehiclesSearchForm({ setVehicle }) {
 	};
 	return (
 		<div className="form-container container mb-5">
-			<h2 className="text-center">Find Vehicle</h2>
+			<h2 className="text-center text-secondary">Find Vehicle</h2>
 			<form onSubmit={findVehicle}>
 				<div className="form-group">
 					<label htmlFor="plugedNumber">Pluged Number</label>
