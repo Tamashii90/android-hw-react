@@ -3,6 +3,11 @@ import { toast } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
 import MyApi from "../utils/MyApi";
+import Button from "./Form/Button";
+import Label from "./Form/Label";
+import Input from "./Form/Input";
+import Form from "./Form";
+import FormGroup from "./Form/FormGroup";
 
 export default function SearchForm() {
 	const [, setList] = useContext(ListContext);
@@ -34,104 +39,28 @@ export default function SearchForm() {
 		}
 	};
 	return (
-		<div className="form-container container my-5">
-			<form onSubmit={search}>
-				<div className="row">
-					<h2 className="text-center text-secondary p-4">
-						Find Violations
-					</h2>
-					<div className="form-group row">
-						<label
-							className="col-form-label col-md-3"
-							htmlFor="plugedNumber"
-						>
-							Pluged Number
-						</label>
-						<div className="col-md-9">
-							<input
-								className="form-control"
-								minLength="6"
-								maxLength="6"
-								type="text"
-								id="plugedNumber"
-								name="plugedNumber"
-							/>
-						</div>
-					</div>
-					<div className="form-group row">
-						<label
-							className="col-form-label col-md-3"
-							htmlFor="driver"
-						>
-							Driver
-						</label>
-						<div className="col-md-9">
-							<input
-								className="form-control"
-								type="text"
-								id="driver"
-								name="driver"
-							/>
-						</div>
-					</div>
-					<div className="form-group row">
-						<label
-							className="col-form-label col-md-3"
-							htmlFor="location"
-						>
-							Location
-						</label>
-						<div className="col-md-9">
-							<input
-								className="form-control"
-								type="text"
-								id="location"
-								name="location"
-							/>
-						</div>
-					</div>
-					<div className="form-group row">
-						<label
-							className="col-form-label col-md-3 "
-							htmlFor="fromDate"
-						>
-							From Date
-						</label>
-						<div className="col-md-9">
-							<input
-								className="form-control"
-								type="date"
-								id="fromDate"
-								name="fromDate"
-							/>
-						</div>
-					</div>
-					<div className="form-group row">
-						<label
-							className="col-form-label col-md-3 "
-							htmlFor="toDate"
-						>
-							To Date
-						</label>
-						<div className="col-md-9">
-							<input
-								className="form-control"
-								type="date"
-								id="toDate"
-								name="toDate"
-							/>
-						</div>
-					</div>
-					<div className="col-12">
-						<button type="submit" className="btn btn-primary">
-							Search
-							{loading && (
-								<span className="ms-2 spinner-grow spinner-grow-sm"></span>
-							)}
-						</button>
-					</div>
-				</div>
-			</form>
-		</div>
+		<Form onSubmit={search} title="Find Violations">
+			<FormGroup>
+				<Label htmlFor="plugedNumber">Pluged Number</Label>
+				<Input name="plugedNumber" minLength="6" maxLength="6" />
+			</FormGroup>
+			<FormGroup>
+				<Label htmlFor="driver">Driver</Label>
+				<Input name="driver" />
+			</FormGroup>
+			<FormGroup>
+				<Label htmlFor="location">Location</Label>
+				<Input name="location" />
+			</FormGroup>
+			<FormGroup>
+				<Label htmlFor="fromDate">From Date</Label>
+				<Input type="date" name="fromDate" />
+			</FormGroup>
+			<FormGroup>
+				<Label htmlFor="toDate">To Date</Label>
+				<Input type="date" name="toDate" />
+			</FormGroup>
+			<Button loading={loading}>Search</Button>
+		</Form>
 	);
 }
