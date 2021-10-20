@@ -1,19 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function ViolationCard({ card }) {
+	const history = useHistory();
+	const navigateToCard = () => {
+		history.push(`/violations-log/${card.id}`);
+	};
 	return (
-		<ul>
-			<li>{card.date}</li>
-			<li>{card.driver}</li>
-			<li>{card.tax}</li>
-			<li>{String(card.paid)}</li>
-			<li>{card.location}</li>
-			<li>{card.type}</li>
-			<li>{card.plugedNumber}</li>
-			<li>
-				<Link to={`/violations-log/${card.id}`}>Show Details</Link>
-			</li>
-		</ul>
+		<div className="col-md-6 my-3" onClick={navigateToCard}>
+			<div className="violation-card p-4 mx-1">
+				<div className="d-flex justify-content-between mb-2">
+					<span>{card.plugedNumber}</span>
+					<span>{card.driver}</span>
+				</div>
+				<div className="d-flex justify-content-between mb-2">
+					<span>{card.location}</span>
+					<span>{card.date}</span>
+				</div>
+				<div className="d-flex justify-content-between mb-2">
+					<span>{card.paid}</span>
+					<span>{card.tax}£S</span>
+				</div>
+			</div>
+		</div>
 	);
 }

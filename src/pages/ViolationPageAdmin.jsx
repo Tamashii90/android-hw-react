@@ -172,7 +172,7 @@ export default function ViolationPageAdmin() {
 						<button type="submit" className="btn btn-primary">
 							Update
 							{btnLoader && (
-								<span className="ms-3 spinner-grow spinner-grow-sm"></span>
+								<span className="ms-2 spinner-grow spinner-grow-sm"></span>
 							)}
 						</button>
 					</form>

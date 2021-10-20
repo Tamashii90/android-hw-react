@@ -63,7 +63,7 @@ export default function LoginPage() {
 					<button type="submit" className="btn btn-primary">
 						Log In
 						{loading && (
-							<span className="ml-3 spinner-grow spinner-grow-sm"></span>
+							<span className="ms-2 spinner-grow spinner-grow-sm"></span>
 						)}
 					</button>
 				</form>

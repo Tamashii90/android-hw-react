@@ -39,14 +39,14 @@ export default function SearchForm() {
 				<div className="row">
 					<h2 className="text-center p-4">Find Violations</h2>
 
-					<div className="form-group col-sm-6 row">
+					<div className="form-group row">
 						<label
-							className="col-form-label col-sm-3 big-label"
+							className="col-form-label col-md-3 text-md-left text-center"
 							htmlFor="plugedNumber"
 						>
 							Pluged Number
 						</label>
-						<div className="col-sm-9">
+						<div className="col-md-9">
 							<input
 								className="form-control"
 								minLength="6"
@@ -57,14 +57,14 @@ export default function SearchForm() {
 							/>
 						</div>
 					</div>
-					<div className="form-group col-sm-6 row">
+					<div className="form-group row">
 						<label
-							className="col-form-label col-sm-3"
+							className="col-form-label col-md-3 text-md-left text-center"
 							htmlFor="driver"
 						>
 							Driver
 						</label>
-						<div className="col-sm-9">
+						<div className="col-md-9">
 							<input
 								className="form-control"
 								type="text"
@@ -73,14 +73,14 @@ export default function SearchForm() {
 							/>
 						</div>
 					</div>
-					<div className="form-group col-sm-6 row">
+					<div className="form-group row">
 						<label
-							className="col-form-label col-sm-3"
+							className="col-form-label col-md-3 text-md-left text-center"
 							htmlFor="location"
 						>
 							Location
 						</label>
-						<div className="col-sm-9">
+						<div className="col-md-9">
 							<input
 								className="form-control"
 								type="text"
@@ -89,14 +89,14 @@ export default function SearchForm() {
 							/>
 						</div>
 					</div>
-					<div className="form-group col-sm-6 row">
+					<div className="form-group row">
 						<label
-							className="col-form-label col-sm-3 big-label"
+							className="col-form-label col-md-3 text-md-left text-center big-label"
 							htmlFor="fromDate"
 						>
 							From Date
 						</label>
-						<div className="col-sm-9">
+						<div className="col-md-9">
 							<input
 								className="form-control"
 								type="date"
@@ -105,14 +105,14 @@ export default function SearchForm() {
 							/>
 						</div>
 					</div>
-					<div className="form-group col-sm-6 row">
+					<div className="form-group row">
 						<label
-							className="col-form-label col-sm-3 big-label"
+							className="col-form-label col-md-3 text-md-left text-center big-label"
 							htmlFor="toDate"
 						>
 							To Date
 						</label>
-						<div className="col-sm-9">
+						<div className="col-md-9">
 							<input
 								className="form-control"
 								type="date"
@@ -125,7 +125,7 @@ export default function SearchForm() {
 						<button type="submit" className="btn btn-primary">
 							Search
 							{loading && (
-								<span className="ms-3 spinner-grow spinner-grow-sm"></span>
+								<span className="ms-2 spinner-grow spinner-grow-sm"></span>
 							)}
 						</button>
 					</div>

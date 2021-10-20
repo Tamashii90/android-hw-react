@@ -104,7 +104,7 @@ export default function RegisterPage() {
 				<button type="submit" className="btn btn-primary">
 					Register
 					{loading && (
-						<span className="ml-3 spinner-grow spinner-grow-sm"></span>
+						<span className="ms-2 spinner-grow spinner-grow-sm"></span>
 					)}
 				</button>
 			</form>

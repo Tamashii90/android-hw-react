@@ -64,7 +64,7 @@ export default function SearchForm() {
 				<button type="submit" className="btn btn-primary">
 					Search
 					{loading && (
-						<span className="ml-3 spinner-grow spinner-grow-sm"></span>
+						<span className="ms-2 spinner-grow spinner-grow-sm"></span>
 					)}
 				</button>
 			</form>

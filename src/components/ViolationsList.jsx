@@ -7,16 +7,25 @@ export default function ViolationsList() {
 	const totalTax = list.reduce((acc, el) => acc + el.tax, 0);
 	const count = list.length;
 	return (
-		<>
-			<h3>
-				<div id="search-div" className="text-left">
-					Found {count} violations.
-				</div>
-				{!!count && <div className="text-right">{totalTax}</div>}
-			</h3>
-			{list.map(el => (
-				<ViolationCard key={el.id} card={el} />
-			))}
-		</>
+		<div className="container">
+			<div
+				id="search-div"
+				className="d-flex justify-content-between mb-3"
+			>
+				<h4 className="text-left">
+					Found <b>{count}</b> violations.
+				</h4>
+				{!!count && (
+					<h4 className="text-right">
+						Tax: <b>{totalTax}£S</b>
+					</h4>
+				)}
+			</div>
+			<div className="row">
+				{list.map(el => (
+					<ViolationCard key={el.id} card={el} />
+				))}
+			</div>
+		</div>
 	);
 }

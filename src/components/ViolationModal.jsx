@@ -105,7 +105,7 @@ export default function ViolationModal({ plugedNumber, showModal }) {
 				<button type="submit" className="btn btn-primary mt-3">
 					Submit
 					{loading && (
-						<span className="ms-3 spinner-grow spinner-grow-sm"></span>
+						<span className="ms-2 spinner-grow spinner-grow-sm"></span>
 					)}
 				</button>
 			</form>
