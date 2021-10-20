@@ -8,7 +8,7 @@ export default function ViolationCard({ card }) {
 	};
 	return (
 		<div className="col-md-6 my-3" onClick={navigateToCard}>
-			<div className="violation-card bg-primary text-white  p-4 mx-1">
+			<div className="violation-card bg-primary p-4 mx-1">
 				<div className="d-flex justify-content-between mb-3">
 					<span>{card.plugedNumber}</span>
 					<span>{card.driver}</span>

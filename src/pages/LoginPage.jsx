@@ -1,8 +1,13 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Link, useHistory, Redirect } from "react-router-dom";
-import { ToastContainer, toast, Zoom } from "react-toastify";
+import { toast } from "react-toastify";
 import UsernameContext from "../context/UsernameContext";
 import MyApi from "../utils/MyApi";
+import Form from "../components/Form/Form";
+import Label from "../components/Form/Label";
+import Button from "../components/Form/Button";
+import FormGroup from "../components/Form/FormGroup";
+import Input from "../components/Form/Input";
 
 export default function LoginPage() {
 	const { post, loading, response } = new MyApi();
@@ -34,43 +39,24 @@ export default function LoginPage() {
 		return <Redirect to="/" />;
 	}
 	return (
-		<>
-			<div className="form-container container mb-5">
-				<h2 className="text-center text-secondary">
-					Log In to Your Account
-				</h2>
-				<form onSubmit={login}>
-					<div className="form-group">
-						<label htmlFor="username">Username</label>
-						<input
-							className="form-control"
-							type="text"
-							id="username"
-							name="username"
-							defaultValue="noob"
-							required
-						/>
-					</div>
-					<div className="form-group">
-						<label htmlFor="password">Password</label>
-						<input
-							className="form-control"
-							type="password"
-							id="password"
-							name="password"
-							defaultValue="12345678"
-							required
-						/>
-					</div>
-					<button type="submit" className="btn btn-primary">
-						Log In
-						{loading && (
-							<span className="ms-2 text-secondary spinner-grow spinner-grow-sm"></span>
-						)}
-					</button>
-				</form>
-				<Link to="/register">Don't have an account ?</Link>
-			</div>
-		</>
+		<div className="container text-center">
+			<Form onSubmit={login} title="Log in to Your Account">
+				<FormGroup>
+					<Label htmlFor="username">Username</Label>
+					<Input name="username" defaultValue="admin" required />
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor="password">Password</Label>
+					<Input
+						name="password"
+						type="password"
+						defaultValue="12345678"
+						required
+					/>
+				</FormGroup>
+				<Button loading={loading}>Log in</Button>
+			</Form>
+			<Link to="/register">Don't have an account ?</Link>
+		</div>
 	);
 }

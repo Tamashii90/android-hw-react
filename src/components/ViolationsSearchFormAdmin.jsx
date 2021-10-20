@@ -6,7 +6,7 @@ import MyApi from "../utils/MyApi";
 import Button from "./Form/Button";
 import Label from "./Form/Label";
 import Input from "./Form/Input";
-import Form from "./Form";
+import Form from "./Form/Form";
 import FormGroup from "./Form/FormGroup";
 
 export default function SearchForm() {
@@ -39,28 +39,30 @@ export default function SearchForm() {
 		}
 	};
 	return (
-		<Form onSubmit={search} title="Find Violations">
-			<FormGroup>
-				<Label htmlFor="plugedNumber">Pluged Number</Label>
-				<Input name="plugedNumber" minLength="6" maxLength="6" />
-			</FormGroup>
-			<FormGroup>
-				<Label htmlFor="driver">Driver</Label>
-				<Input name="driver" />
-			</FormGroup>
-			<FormGroup>
-				<Label htmlFor="location">Location</Label>
-				<Input name="location" />
-			</FormGroup>
-			<FormGroup>
-				<Label htmlFor="fromDate">From Date</Label>
-				<Input type="date" name="fromDate" />
-			</FormGroup>
-			<FormGroup>
-				<Label htmlFor="toDate">To Date</Label>
-				<Input type="date" name="toDate" />
-			</FormGroup>
-			<Button loading={loading}>Search</Button>
-		</Form>
+		<div className="container text-center">
+			<Form onSubmit={search} title="Find Violations">
+				<FormGroup>
+					<Label htmlFor="plugedNumber">Pluged Number</Label>
+					<Input name="plugedNumber" minLength="6" maxLength="6" />
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor="driver">Driver</Label>
+					<Input name="driver" />
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor="location">Location</Label>
+					<Input name="location" />
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor="fromDate">From Date</Label>
+					<Input type="date" name="fromDate" />
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor="toDate">To Date</Label>
+					<Input type="date" name="toDate" />
+				</FormGroup>
+				<Button loading={loading}>Search</Button>
+			</Form>
+		</div>
 	);
 }

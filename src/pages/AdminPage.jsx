@@ -19,19 +19,21 @@ export default function AdminPage() {
 	};
 	return (
 		<>
-			<div className="btn-group">
-				<button
-					className="btn btn-primary"
-					onClick={transitionToViolations}
-				>
-					Violations
-				</button>
-				<button
-					className="btn btn-primary"
-					onClick={transitionToVehicles}
-				>
-					Vehicles
-				</button>
+			<div className="container text-center">
+				<div className="btn-group">
+					<button
+						className="btn btn-primary"
+						onClick={transitionToViolations}
+					>
+						Violations
+					</button>
+					<button
+						className="btn btn-primary"
+						onClick={transitionToVehicles}
+					>
+						Vehicles
+					</button>
+				</div>
 			</div>
 			{violations ? (
 				<>

@@ -3,12 +3,13 @@ $secondary: #f35e04;
 $warning: #ffa200;
 $dark: #6c757d;
 $danger: #ff006c;
+$text: #f0b253;
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 body {
 	background-color: #252222;
-	color: white;
+	color: $text;
 }
 
 h2.text-secondary {
@@ -25,12 +26,23 @@ h2.text-secondary {
 	}
 }
 
-.btn-primary:hover {
-	color: $secondary;
+.btn-primary {
+	color: $text;
+	&:hover {
+		color: $secondary;
+	}
 }
 
 input:read-only {
 	color: white;
+}
+
+a:link {
+	color: $secondary;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
 }
 
 .form-container form {
@@ -44,11 +56,10 @@ input:read-only {
 		// }
 	}
 	button[type="submit"] {
-		width: 100%;
 		background: white;
 		color: black;
 		margin: 2rem 0;
-		border: 2px solid $dark;
+		border: 1px solid black;
 	}
 	.form-group {
 		margin-top: 1rem;
@@ -56,13 +67,6 @@ input:read-only {
 			margin-left: auto;
 			margin-right: auto;
 		}
-	}
-	a:link {
-		color: $secondary;
-		text-decoration: none;
-	}
-	a:hover {
-		text-decoration: underline;
 	}
 }
 
