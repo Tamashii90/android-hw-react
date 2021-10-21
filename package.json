@@ -5,7 +5,7 @@
 	"scripts": {
 		"start": "parcel index.html -p 3000",
 		"build": "rm C:/Users/ASUS/Desktop/JavaTest/dbdemo/src/main/resources/static/* && parcel build index.html --no-source-maps --dist-dir C:/Users/ASUS/Desktop/JavaTest/dbdemo/src/main/resources/static",
-		"proxy": "lcp --proxyUrl https://tamashii-spring.herokuapp.com"
+		"proxy": "lcp --proxyUrl https://e-traffic.herokuapp.com"
 	},
 	"keywords": [],
 	"author": "",
