@@ -3,13 +3,20 @@ $secondary: #f35e04;
 $warning: #ffa200;
 $dark: #6c757d;
 $danger: #ff006c;
-$text: #f0b253;
+$body-color: #f0b253;
+
+$link-color: $secondary;
+$link-decoration: none;
+$link-hover-color: $secondary;
+$link-hover-decoration: underline;
+
+$btn-link-color: $body-color;
+$btn-link-hover-color: $primary;
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 body {
 	background-color: #252222;
-	color: $text;
 }
 
 h2.text-secondary {
@@ -26,41 +33,39 @@ h2.text-secondary {
 	}
 }
 
+.form-control,
+.form-control:focus {
+	color: $gray-900;
+}
+
 .btn-primary {
-	color: $text;
-	&:hover {
+	color: $body-color;
+	&:hover,
+	&:focus {
 		color: $secondary;
 	}
 }
 
-input:read-only {
-	color: white;
-}
-
-a:link {
-	color: $secondary;
-	text-decoration: none;
-}
-a:hover {
-	text-decoration: underline;
+button[type="submit"],
+header .btn {
+	background: white;
+	color: black;
+	border: 1px solid black;
+	&:hover {
+		color: black;
+	}
 }
 
 .form-container form {
 	background-color: $primary;
 	border: 1px solid black;
-	color: white;
 	border-radius: 10px;
 	label {
 		// @media (max-width: 767px) {
 		text-align: center;
 		// }
 	}
-	button[type="submit"] {
-		background: white;
-		color: black;
-		margin: 2rem 0;
-		border: 1px solid black;
-	}
+
 	.form-group {
 		margin-top: 1rem;
 		@media (max-width: 767px) {

@@ -16,13 +16,13 @@ export default function Header() {
 		history.replace("/login");
 	};
 	return (
-		<>
+		<header className="bg-primary mb-5">
 			<div className="d-flex justify-content-between align-items-center p-4">
 				<Link to="/">This is logo</Link>
 				{user && (
-					<div>
+					<div className="d-flex align-items-baseline">
 						<span className="me-2">{user}</span>
-						<button className="btn btn-primary" onClick={logOut}>
+						<button className="btn" onClick={logOut}>
 							Log Out
 						</button>
 					</div>
@@ -39,6 +39,6 @@ export default function Header() {
 				pauseOnHover
 				closeButton={false}
 			/>
-		</>
+		</header>
 	);
 }

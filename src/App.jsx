@@ -13,12 +13,10 @@ import AdminPage from "./pages/AdminPage";
 export function App() {
 	return (
 		<>
-			<header>
-				<Helmet>
-					<title>E-Traffic Violations</title>
-				</Helmet>
-				<Header />
-			</header>
+			<Helmet>
+				<title>E-Traffic Violations</title>
+			</Helmet>
+			<Header />
 			<main>
 				<Switch>
 					<Route exact path="/" component={UserPage} />
