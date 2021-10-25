@@ -1,6 +1,12 @@
 import React from "react";
-import { ToastContainer, toast, Zoom } from "react-toastify";
+import { toast } from "react-toastify";
 import MyApi from "../utils/MyApi";
+import { Link } from "react-router-dom";
+import Form from "./Form/Form";
+import FormGroup from "./Form/FormGroup";
+import Label from "./Form/Label";
+import Input from "./Form/Input";
+import Button from "./Form/Button";
 
 export default function VehiclesSearchForm({ setVehicle }) {
 	const { get, loading, response } = new MyApi();
@@ -20,28 +26,20 @@ export default function VehiclesSearchForm({ setVehicle }) {
 		}
 	};
 	return (
-		<div className="form-container container mb-5">
-			<h2 className="text-center text-secondary">Find Vehicle</h2>
-			<form onSubmit={findVehicle}>
-				<div className="form-group">
-					<label htmlFor="plugedNumber">Pluged Number</label>
-					<input
-						className="form-control"
+		<div className="container text-center">
+			<Form title="Find Vehicle" onSubmit={findVehicle}>
+				<FormGroup>
+					<Label htmlFor="plugedNumber">Pluged Number</Label>
+					<Input
 						minLength="6"
 						maxLength="6"
-						type="text"
-						id="plugedNumber"
 						required
 						name="plugedNumber"
 					/>
-				</div>
-				<button className="btn btn-primary" type="submit">
-					Search
-					{loading && (
-						<span className="ms-2 spinner-grow spinner-grow-sm"></span>
-					)}
-				</button>
-			</form>
+				</FormGroup>
+				<Button loading={loading}>Search</Button>
+			</Form>
+			<Link to="/register">Register a New Vehicle</Link>
 		</div>
 	);
 }

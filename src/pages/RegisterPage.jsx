@@ -1,6 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useHistory, Redirect } from "react-router-dom";
-import { ToastContainer, toast, Flip } from "react-toastify";
+import { toast } from "react-toastify";
+import Form from "../components/Form/Form";
+import Input from "../components/Form/Input";
+import Label from "../components/Form/Label";
+import FormGroup from "../components/Form/FormGroup";
+import Button from "../components/Form/Button";
+import Select from "../components/Form/Select";
 import UsernameContext from "../context/UsernameContext";
 import MyApi from "../utils/MyApi";
 
@@ -37,78 +43,54 @@ export default function RegisterPage() {
 		}
 	};
 
-	if (localStorage.getItem("token")) {
+	if (
+		!localStorage.getItem("token") ||
+		localStorage.getItem("authority") !== "ADMIN"
+	) {
 		return <Redirect to="/" />;
 	}
 	return (
-		<div className="container form-container mb-5">
-			<h2 className="text-center text-secondary">Register An Account</h2>
-			<form onSubmit={register}>
-				<div className="form-group">
-					<label htmlFor="driver">Driver</label>
-					<input
-						className="form-control"
-						type="text"
-						id="driver"
-						name="driver"
-						required
-					/>
-				</div>
-				<div className="form-group">
-					<label htmlFor="plugedNumber">Pluged Number</label>
-					<input
-						className="form-control"
-						id="plugedNumber"
+		<div className="container text-center">
+			<Form title="Register a Vehicle" onSubmit={register}>
+				<FormGroup>
+					<Label htmlFor="driver">Driver</Label>
+					<Input name="driver" required />
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor="plugedNumber">Pluged Number</Label>
+					<Input
 						maxLength="6"
 						minLength="6"
 						name="plugedNumber"
 						required
 					/>
-				</div>
-				<div className="form-group">
-					<label htmlFor="repeatPlugedNumber">
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor="repeatPlugedNumber">
 						Repeat Pluged Number
-					</label>
-					<input
-						className="form-control"
-						id="repeatPlugedNumber"
+					</Label>
+					<Input
 						maxLength="6"
 						minLength="6"
 						name="repeatPlugedNumber"
 						required
 					/>
-				</div>
-				<div className="form-group">
-					<label htmlFor="type">Type</label>
-					<select
-						className="custom-select form-control"
-						name="type"
-						id="type"
-						required
-					>
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor="type">Type</Label>
+					<Select name="type">
 						{types.map((type, idx) => (
 							<option key={idx}>{type}</option>
 						))}
-					</select>
-				</div>
-				<div className="form-group">
-					<label htmlFor="productionDate">Production Date</label>
-					<input
-						className="form-control"
-						type="date"
-						id="productionDate"
-						name="productionDate"
-						required
-					/>
-				</div>
-				<button type="submit" className="btn btn-primary">
-					Register
-					{loading && (
-						<span className="ms-2 text-secondary spinner-grow spinner-grow-sm"></span>
-					)}
-				</button>
-			</form>
-			<Link to="/login">Already a member ?</Link>
+					</Select>
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor="productionDate">Production Date</Label>
+					<Input type="date" name="productionDate" required />
+				</FormGroup>
+				<Button loading={loading}>Register</Button>
+			</Form>
+			<Link to="/admin">Back</Link>
 		</div>
 	);
 }

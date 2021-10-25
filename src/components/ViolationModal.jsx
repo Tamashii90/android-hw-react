@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import MyApi from "../utils/MyApi";
+import Button from "./Form/Button";
 
 export default function ViolationModal({ plugedNumber, showModal }) {
 	const [types, setTypes] = useState([]);
@@ -46,7 +47,7 @@ export default function ViolationModal({ plugedNumber, showModal }) {
 
 	return (
 		<div className="overlay fixed-top w-100 h-100" onClick={closeModal}>
-			<form onSubmit={submitViolation} className="text-black bg-white">
+			<form onSubmit={submitViolation} className="bg-primary">
 				<div className="form-group row">
 					<label
 						htmlFor="plugedNumber"
@@ -102,12 +103,7 @@ export default function ViolationModal({ plugedNumber, showModal }) {
 						/>
 					</div>
 				</div>
-				<button type="submit" className="btn btn-primary mt-3">
-					Submit
-					{loading && (
-						<span className="ms-2 spinner-grow spinner-grow-sm"></span>
-					)}
-				</button>
+				<Button loading={loading}>Submit</Button>
 			</form>
 		</div>
 	);

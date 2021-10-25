@@ -1,6 +1,11 @@
 import React, { useContext } from "react";
-import { ToastContainer, toast, Zoom } from "react-toastify";
+import { toast } from "react-toastify";
 import searchCriteria from "../utils/searchCriteria";
+import Form from "./Form/Form";
+import FormGroup from "./Form/FormGroup";
+import Button from "./Form/Button";
+import Label from "./Form/Label";
+import Input from "./Form/Input";
 import ListContext from "../context/ListContext";
 import MyApi from "../utils/MyApi";
 
@@ -31,45 +36,22 @@ export default function SearchForm() {
 		}
 	};
 	return (
-		<div className="form-container container mb-5">
-			<form onSubmit={search}>
-				<h2 className="text-center text-secondary">
-					Find Unpaid Violations
-				</h2>
-				<div className="form-group">
-					<label htmlFor="location">Location</label>
-					<input
-						className="form-control"
-						type="text"
-						id="location"
-						name="location"
-					/>
-				</div>
-				<div className="form-group">
-					<label htmlFor="fromDate">From Date</label>
-					<input
-						className="form-control"
-						type="date"
-						id="fromDate"
-						name="fromDate"
-					/>
-				</div>
-				<div className="form-group">
-					<label htmlFor="toDate">To Date</label>
-					<input
-						className="form-control"
-						type="date"
-						id="toDate"
-						name="toDate"
-					/>
-				</div>
-				<button type="submit" className="btn btn-primary">
-					Search
-					{loading && (
-						<span className="ms-2 spinner-grow spinner-grow-sm"></span>
-					)}
-				</button>
-			</form>
+		<div className="container text-center">
+			<Form title="Find Unpaid Violations" onSubmit={search}>
+				<FormGroup>
+					<Label htmlFor="location">Location</Label>
+					<Input type="text" name="location" />
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor="fromDate">From Date</Label>
+					<Input type="date" id="fromDate" name="fromDate" />
+				</FormGroup>
+				<FormGroup>
+					<Label htmlFor="toDate">To Date</Label>
+					<Input type="date" id="toDate" name="toDate" />
+				</FormGroup>
+				<Button loading={loading}>Search</Button>
+			</Form>
 		</div>
 	);
 }

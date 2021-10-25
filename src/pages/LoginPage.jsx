@@ -56,7 +56,6 @@ export default function LoginPage() {
 				</FormGroup>
 				<Button loading={loading}>Log in</Button>
 			</Form>
-			<Link to="/register">Don't have an account ?</Link>
 		</div>
 	);
 }

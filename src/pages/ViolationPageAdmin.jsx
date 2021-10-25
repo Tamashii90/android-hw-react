@@ -5,6 +5,12 @@ import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
 import MyApi from "../utils/MyApi";
 import ProgressBar from "../components/ProgressBar";
+import Form from "../components/Form/Form";
+import Select from "../components/Form/Select";
+import Button from "../components/Form/Button";
+import FormGroup from "../components/Form/FormGroup";
+import Input from "../components/Form/Input";
+import Label from "../components/Form/Label";
 
 export default function ViolationPageAdmin() {
 	const [, setList] = useContext(ListContext);
@@ -80,106 +86,75 @@ export default function ViolationPageAdmin() {
 	};
 
 	return (
-		<>
+		<div className="container text-center">
 			{pageLoader && <ProgressBar />}
 			{response.ok && (
-				<div>
-					<h2 className="text-secondary text-center">
-						Violation Details
-					</h2>
-					<form onSubmit={updateViolation}>
-						<div className="form-group">
-							<label htmlFor="driver">Driver</label>
-							<input
-								className="form-control-plaintext"
-								type="text"
-								defaultValue={violation.driver}
-								readOnly
-								id="driver"
-								name="driver"
-							/>
-						</div>
-						<div className="form-group">
-							<label htmlFor="plugedNumber">Pluged Number</label>
-							<input
-								className="form-control-plaintext"
-								defaultValue={violation.plugedNumber}
-								readOnly
-								type="text"
-								id="plugedNumber"
-								name="plugedNumber"
-							/>
-						</div>
-						<div className="form-group">
-							<label htmlFor="location">Location</label>
-							<input
-								className="form-control"
-								defaultValue={violation.location}
-								type="text"
-								id="location"
-								name="location"
-							/>
-						</div>
-						<div className="form-group">
-							<label htmlFor="type">Type</label>
-							<select
-								className="custom-select form-control"
-								name="type"
-								id="type"
-								required
-							>
-								{types.map((type, idx) => (
-									<option
-										key={idx}
-										selected={violation.type === type}
-									>
-										{type}
-									</option>
-								))}
-							</select>
-						</div>
-						<div className="form-group">
-							<label htmlFor="date">Date</label>
-							<input
-								className="form-control"
-								type="date"
-								defaultValue={violation.date}
-								id="date"
-								name="date"
-							/>
-						</div>
-						<div className="form-group">
-							<label htmlFor="tax">Tax</label>
-							<input
-								className="form-control-plaintext"
-								type="text"
-								defaultValue={violation.tax}
-								id="tax"
-								name="tax"
-								readOnly
-							/>
-						</div>
-						<div>
-							<label className="form-check-label" htmlFor="paid">
-								Paid
-							</label>
-							<input
-								className="form-check-input"
-								type="checkbox"
-								defaultChecked={violation.paid}
-								id="paid"
-								name="paid"
-							/>
-						</div>
-						<button type="submit" className="btn btn-primary">
-							Update
-							{btnLoader && (
-								<span className="ms-2 spinner-grow spinner-grow-sm"></span>
-							)}
-						</button>
-					</form>
-				</div>
+				<Form onSubmit={updateViolation} title="Violation Details">
+					<FormGroup>
+						<Label htmlFor="driver">Driver</Label>
+						<Input
+							className="form-control-plaintext"
+							defaultValue={violation.driver}
+							readOnly
+							name="driver"
+						/>
+					</FormGroup>
+					<FormGroup>
+						<Label htmlFor="plugedNumber">Pluged Number</Label>
+						<Input
+							className="form-control-plaintext"
+							defaultValue={violation.plugedNumber}
+							readOnly
+							name="plugedNumber"
+						/>
+					</FormGroup>
+					<FormGroup>
+						<Label htmlFor="location">Location</Label>
+						<Input
+							defaultValue={violation.location}
+							name="location"
+						/>
+					</FormGroup>
+					<FormGroup>
+						<Label htmlFor="type">Type</Label>
+						<Select name="type">
+							{types.map((type, idx) => (
+								<option
+									key={idx}
+									selected={violation.type === type}
+								>
+									{type}
+								</option>
+							))}
+						</Select>
+					</FormGroup>
+					<FormGroup>
+						<Label htmlFor="date">Date</Label>
+						<Input
+							type="date"
+							defaultValue={violation.date}
+							name="date"
+						/>
+					</FormGroup>
+					<FormGroup>
+						<Label htmlFor="tax">Tax</Label>
+						<Input
+							className="form-control-plaintext"
+							defaultValue={violation.tax}
+							name="tax"
+							readOnly
+						/>
+					</FormGroup>
+					<Label htmlFor="paid">Paid</Label>
+					<Input
+						className="form-check-input"
+						type="checkbox"
+						defaultChecked={violation.paid}
+						name="paid"
+					/>
+					<Button loading={btnLoader}>Update</Button>
+				</Form>
 			)}
-		</>
+		</div>
 	);
 }
