@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import MyApi from "../utils/MyApi";
 import ViolationModal from "./ViolationModal";
+import MyTable from "./Table/MyTable";
+import Row from "./Table/Row";
 
 export default function VehicleDetails({ vehicle, setVehicle }) {
 	const { post, loading, response, cache } = new MyApi();
@@ -26,16 +28,22 @@ export default function VehicleDetails({ vehicle, setVehicle }) {
 	};
 	if (!vehicle) return null;
 	return (
-		<>
-			<div>
-				<ul>
-					<li>{vehicle.productionDate}</li>
-					<li>{vehicle.registrationDate}</li>
-					<li>{String(vehicle.crossOut)}</li>
-					<li>{vehicle.driver}</li>
-					<li>{vehicle.type}</li>
-					<li>{vehicle.plugedNumber}</li>
-				</ul>
+		<div className="container text-center my-5" id="vehicle-table">
+			<MyTable className="table">
+				<Row heading="Pluged Number" value={vehicle.plugedNumber} />
+				<Row heading="Driver" value={vehicle.driver} />
+				<Row heading="Type" value={vehicle.type} />
+				<Row heading="Production Date" value={vehicle.productionDate} />
+				<Row
+					heading="Registration Date"
+					value={vehicle.registrationDate}
+				/>
+				<Row
+					heading="Crossed Out"
+					value={vehicle.crossOut ? "Yes" : "No"}
+				/>
+			</MyTable>
+			<div className="btn-group mt-3">
 				<button
 					className="btn btn-primary"
 					onClick={() => showModal(true)}
@@ -60,6 +68,6 @@ export default function VehicleDetails({ vehicle, setVehicle }) {
 					showModal={showModal}
 				/>
 			)}
-		</>
+		</div>
 	);
 }

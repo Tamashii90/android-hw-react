@@ -10,7 +10,7 @@ export default function ViolationsList() {
 		<div className="container">
 			<div
 				id="search-div"
-				className="d-flex justify-content-between mb-3"
+				className="d-flex justify-content-between mb-3 mt-5"
 			>
 				<h4>
 					Found <b>{count}</b> violations.

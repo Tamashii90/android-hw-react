@@ -56,6 +56,17 @@ header .btn {
 	}
 }
 
+table.table {
+	th,
+	td {
+		border: 1px solid black;
+	}
+	tbody th {
+		background-color: $primary;
+		color: $body-color;
+	}
+}
+
 .form-container form {
 	background-color: $primary;
 	border: 1px solid black;
@@ -65,7 +76,6 @@ header .btn {
 		text-align: center;
 		// }
 	}
-
 	.form-group {
 		margin-top: 1rem;
 		@media (max-width: 767px) {

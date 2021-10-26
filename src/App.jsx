@@ -17,7 +17,7 @@ export function App() {
 				<title>E-Traffic Violations</title>
 			</Helmet>
 			<Header />
-			<main>
+			<main className="mb-5">
 				<Switch>
 					<Route exact path="/" component={UserPage} />
 					<Route exact path="/admin" component={AdminPage} />

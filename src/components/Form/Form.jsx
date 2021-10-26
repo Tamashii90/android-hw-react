@@ -3,7 +3,7 @@ import FormGroup from "./FormGroup";
 
 export default function Form({ children, title, onSubmit }) {
 	return (
-		<div className="form-container my-5">
+		<div className="form-container mt-5 mb-3">
 			<form onSubmit={onSubmit}>
 				<div className="row">
 					<h2 className="text-center text-secondary p-4">{title}</h2>

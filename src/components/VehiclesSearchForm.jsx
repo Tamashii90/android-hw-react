@@ -18,6 +18,7 @@ export default function VehiclesSearchForm({ setVehicle }) {
 			const vehicle = await get(`/api/vehicles/${plugedNumber}`);
 			if (response.ok) {
 				setVehicle(vehicle);
+				document.getElementById("vehicle-table").scrollIntoView();
 			} else {
 				toast.error(response.data?.message);
 			}

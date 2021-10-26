@@ -5,6 +5,8 @@ import searchCriteria from "../utils/searchCriteria";
 import ListContext from "../context/ListContext";
 import MyApi from "../utils/MyApi";
 import ProgressBar from "../components/ProgressBar";
+import MyTable from "../components/Table/MyTable";
+import Row from "../components/Table/Row";
 
 export default function ViolationPageUser() {
 	const {
@@ -68,21 +70,30 @@ export default function ViolationPageUser() {
 		<>
 			{pageLoader && <ProgressBar />}
 			{!pageLoader && response.ok && (
-				<div>
-					<ul>
-						<li>{violation.date}</li>
-						<li>{violation.driver}</li>
-						<li>{violation.tax}</li>
-						<li>{String(violation.paid)}</li>
-						<li>{violation.location}</li>
-						<li>{violation.type}</li>
-						<li>{violation.plugedNumber}</li>
-					</ul>
+				<div className="container text-center">
+					<h2 className="text-center text-secondary mb-5">
+						Violation Details
+					</h2>
+					<MyTable>
+						<Row heading="Date" value={violation.date} />
+						<Row heading="Driver" value={violation.driver} />
+						<Row heading="Tax" value={violation.tax} />
+						<Row
+							heading="Paid"
+							value={violation.paid ? "Yes" : "No"}
+						/>
+						<Row heading="Location" value={violation.location} />
+						<Row heading="Type" value={violation.type} />
+						<Row
+							heading="Pluged Number"
+							value={violation.plugedNumber}
+						/>
+					</MyTable>
 					<button
-						className="btn btn-primary"
+						className="btn btn-primary my-3"
 						onClick={payForViolation}
 					>
-						Pay
+						Pay for This Violation
 						{loading && (
 							<span className="ms-2 spinner-grow spinner-grow-sm"></span>
 						)}
