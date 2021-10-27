@@ -6,7 +6,7 @@ export default function Button({ loading, children: text }) {
 			<button type="submit" className="btn my-4">
 				{text}
 				{loading && (
-					<span className="text-primary ms-2 spinner-grow spinner-grow-sm"></span>
+					<span className="text-secondary ms-2 spinner-grow spinner-grow-sm"></span>
 				)}
 			</button>
 		</div>

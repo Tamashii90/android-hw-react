@@ -1,9 +1,9 @@
-$primary: #022a55;
-$secondary: #f35e04;
+$primary: #202833;
+$secondary: #1f9ef5;
 $warning: #ffa200;
 $dark: #6c757d;
 $danger: #ff006c;
-$body-color: #f0b253;
+$body-color: #c5c6c8;
 
 $link-color: $secondary;
 $link-decoration: none;
@@ -19,11 +19,12 @@ $form-check-input-checked-color: $primary;
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 body {
-	background-color: #252222;
+	font-family: "Fjalla One", sans-serif;
+	background-color: #0b0c10f0;
 }
 
 svg {
-	fill: $body-color;
+	fill: $secondary;
 }
 
 h2.text-secondary {
