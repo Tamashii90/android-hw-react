@@ -30,6 +30,7 @@ export default function ViolationPageAdmin() {
 			} else {
 				toast.error(response.data?.message);
 			}
+
 			const types = await get("/api/violations");
 			if (response.ok) {
 				setTypes(types);
@@ -141,7 +142,7 @@ export default function ViolationPageAdmin() {
 						<Label htmlFor="tax">Tax</Label>
 						<Input
 							className="form-control-plaintext"
-							defaultValue={violation.tax}
+							defaultValue={violation.tax && `$${violation.tax}`}
 							name="tax"
 							readOnly
 						/>

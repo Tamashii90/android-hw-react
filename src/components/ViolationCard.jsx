@@ -19,7 +19,7 @@ export default function ViolationCard({ card }) {
 				</div>
 				<div className="d-flex justify-content-between mb-3">
 					<span>{card.paid}</span>
-					<span>{card.tax}£S</span>
+					<span>{"$" + card.tax}</span>
 				</div>
 			</div>
 		</div>

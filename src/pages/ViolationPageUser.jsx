@@ -77,7 +77,7 @@ export default function ViolationPageUser() {
 					<MyTable>
 						<Row heading="Date" value={violation.date} />
 						<Row heading="Driver" value={violation.driver} />
-						<Row heading="Tax" value={violation.tax} />
+						<Row heading="Tax" value={"$" + violation.tax} />
 						<Row
 							heading="Paid"
 							value={violation.paid ? "Yes" : "No"}
