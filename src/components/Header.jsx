@@ -8,6 +8,7 @@ export default function Header() {
 	const [user, setUser] = useContext(UsernameContext);
 	const [, setList] = useContext(ListContext);
 	const history = useHistory();
+	const logo = new URL("/logo.png", import.meta.url);
 
 	const logOut = () => {
 		localStorage.clear();
@@ -18,7 +19,9 @@ export default function Header() {
 	return (
 		<header className="bg-primary mb-5">
 			<div className="d-flex justify-content-between align-items-center p-4">
-				<Link to="/">This is logo</Link>
+				<Link to="/">
+					<img src={logo} alt="E-Traffic" />
+				</Link>
 				{user && (
 					<div className="d-flex align-items-baseline">
 						<span className="me-2">{user}</span>
