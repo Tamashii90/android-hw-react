@@ -13,6 +13,9 @@ $link-hover-decoration: underline;
 $btn-link-color: $body-color;
 $btn-link-hover-color: $primary;
 
+$form-check-input-checked-bg-color: white;
+$form-check-input-checked-color: $primary;
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 body {
@@ -114,6 +117,92 @@ table.table {
 	background-color: $primary;
 	animation: indeterminateAnimation 1s infinite linear;
 	transform-origin: 0% 50%;
+}
+
+.custom-switch {
+	padding-left: 2.25rem;
+}
+
+.custom-control {
+	position: relative;
+	z-index: 1;
+	display: block;
+	min-height: 1.5rem;
+	padding-left: 1.5rem;
+	-webkit-print-color-adjust: exact;
+	color-adjust: exact;
+}
+
+.custom-control-input {
+	position: absolute;
+	left: 0;
+	z-index: -1;
+	width: 1rem;
+	height: 1.25rem;
+	opacity: 0;
+}
+
+/* The switch - the box around the slider */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+input:checked + .slider {
+	background-color: $secondary;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px $secondary;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(23px);
+	-ms-transform: translateX(23px);
+	transform: translateX(23px);
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
 }
 
 @keyframes indeterminateAnimation {

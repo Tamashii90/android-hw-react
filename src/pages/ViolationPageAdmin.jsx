@@ -11,6 +11,7 @@ import Button from "../components/Form/Button";
 import FormGroup from "../components/Form/FormGroup";
 import Input from "../components/Form/Input";
 import Label from "../components/Form/Label";
+import Toggle from "../components/Form/Toggle";
 
 export default function ViolationPageAdmin() {
 	const [, setList] = useContext(ListContext);
@@ -145,13 +146,10 @@ export default function ViolationPageAdmin() {
 							readOnly
 						/>
 					</FormGroup>
-					<Label htmlFor="paid">Paid</Label>
-					<Input
-						className="form-check-input"
-						type="checkbox"
-						defaultChecked={violation.paid}
-						name="paid"
-					/>
+					<FormGroup>
+						<Label htmlFor="paid">Paid</Label>
+						<Toggle name="paid" defaultChecked={violation.paid} />
+					</FormGroup>
 					<Button loading={btnLoader}>Update</Button>
 				</Form>
 			)}
