@@ -16,11 +16,18 @@ $btn-link-hover-color: $primary;
 $form-check-input-checked-bg-color: white;
 $form-check-input-checked-color: $primary;
 
+:root {
+	--toastify-color-success: #191a1e;
+	--toastify-color-error: #191a1e;
+	--toastify-text-color-error: #e74c3c;
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/react-toastify/dist/ReactToastify.css";
 
 body {
 	font-family: "Fjalla One", sans-serif;
-	background-color: #0b0c10f0;
+	background-color: #191a1e;
 }
 
 svg {

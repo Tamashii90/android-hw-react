@@ -35,7 +35,7 @@ export default function Header() {
 				position="top-center"
 				theme="colored"
 				transition={Zoom}
-				autoClose={1500}
+				autoClose={1700}
 				hideProgressBar
 				newestOnTop={false}
 				rtl={false}

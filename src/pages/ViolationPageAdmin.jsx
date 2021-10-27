@@ -55,6 +55,7 @@ export default function ViolationPageAdmin() {
 				Object.fromEntries(form)
 			);
 			if (response.ok) {
+				toast.success("Success!");
 				refreshViolationsList();
 			} else {
 				toast.error(response.data?.message);
