@@ -31,10 +31,8 @@ export default function RegisterPage() {
 		try {
 			const data = await post("/api/register", Object.fromEntries(form));
 			if (response.ok) {
-				localStorage.setItem("token", data.jwt);
-				localStorage.setItem("authority", data.authority);
-				setUser(e.target.driver.value);
-				history.replace("/");
+				toast.success("Success!");
+				history.push("/admin");
 			} else {
 				toast.error(response.data.message);
 			}
