@@ -13,7 +13,6 @@ export default function ViolationPageUser() {
 		get,
 		loading: pageLoader,
 		response,
-		cache,
 		data: violation = {}
 	} = new MyApi();
 	const { post, loading } = new MyApi();
@@ -39,7 +38,6 @@ export default function ViolationPageUser() {
 		const fromDate = searchCriteria.fromDate;
 		const toDate = searchCriteria.toDate;
 		const plugedNumber = localStorage.getItem("plugedNumber");
-		cache.clear();
 		try {
 			const data = await get(
 				`/api/violations-log/user/${plugedNumber}?location=${location}&fromDate=${fromDate}&toDate=${toDate}`

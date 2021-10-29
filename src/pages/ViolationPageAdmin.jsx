@@ -19,10 +19,9 @@ export default function ViolationPageAdmin() {
 	const [violation, setViolation] = useState([]);
 	const { id: violationId } = useParams();
 	const history = useHistory();
-	const { get, cache, loading: pageLoader, response } = new MyApi();
+	const { get, loading: pageLoader, response } = new MyApi();
 	const { put, loading: btnLoader } = new MyApi();
 	useEffect(async () => {
-		cache.clear();
 		try {
 			const violation = await get(`/api/violations-log/${violationId}`);
 			if (response.ok) {
@@ -71,7 +70,6 @@ export default function ViolationPageAdmin() {
 		const fromDate = searchCriteria.fromDate;
 		const toDate = searchCriteria.toDate;
 		const plugedNumber = searchCriteria.plugedNumber;
-		cache.clear();
 		try {
 			const data = await get(
 				`/api/violations-log/?plugedNumber=${plugedNumber}&driver=${driver}&location=${location}&fromDate=${fromDate}&toDate=${toDate}`

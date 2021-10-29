@@ -7,14 +7,14 @@ export default class MyApi {
 			{
 				headers: {
 					"Authorization": `Bearer ${localStorage.getItem("token")}`
-				}
+				},
+				cachePolicy: "no-cache"
 			}
 		);
 		this.put = put;
 		this.data = data;
 		this.post = post;
 		this.get = get;
-		this.cache = cache;
 		this.loading = loading;
 		this.response = response;
 	}

@@ -6,7 +6,7 @@ import MyTable from "./Table/MyTable";
 import Row from "./Table/Row";
 
 export default function VehicleDetails({ vehicle, setVehicle }) {
-	const { post, loading, response, cache } = new MyApi();
+	const { post, loading, response } = new MyApi();
 	const [modal, showModal] = useState(false);
 
 	const crossOutUnCrossOut = async () => {
@@ -16,7 +16,6 @@ export default function VehicleDetails({ vehicle, setVehicle }) {
 		try {
 			await post(`/api/vehicles/${vehicle.plugedNumber}`, reqObj);
 			if (response.ok) {
-				cache.clear();
 				setVehicle(null);
 				toast.success("Success!");
 			} else {
