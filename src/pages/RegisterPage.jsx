@@ -41,10 +41,7 @@ export default function RegisterPage() {
 		}
 	};
 
-	if (
-		!localStorage.getItem("token") ||
-		localStorage.getItem("authority") !== "ADMIN"
-	) {
+	if (!localStorage.getItem("token") || localStorage.getItem("authority") !== "ADMIN") {
 		return <Redirect to="/" />;
 	}
 	return (
@@ -55,24 +52,12 @@ export default function RegisterPage() {
 					<Input name="driver" required />
 				</FormGroup>
 				<FormGroup>
-					<Label htmlFor="plugedNumber">Pluged Number</Label>
-					<Input
-						maxLength="6"
-						minLength="6"
-						name="plugedNumber"
-						required
-					/>
+					<Label htmlFor="plateNumber">Plate Number</Label>
+					<Input maxLength="6" minLength="6" name="plateNumber" required />
 				</FormGroup>
 				<FormGroup>
-					<Label htmlFor="repeatPlugedNumber">
-						Repeat Pluged Number
-					</Label>
-					<Input
-						maxLength="6"
-						minLength="6"
-						name="repeatPlugedNumber"
-						required
-					/>
+					<Label htmlFor="repeatPlateNumber">Repeat Plate Number</Label>
+					<Input maxLength="6" minLength="6" name="repeatPlateNumber" required />
 				</FormGroup>
 				<FormGroup>
 					<Label htmlFor="type">Type</Label>

@@ -9,12 +9,7 @@ import MyTable from "../components/Table/MyTable";
 import Row from "../components/Table/Row";
 
 export default function ViolationPageUser() {
-	const {
-		get,
-		loading: pageLoader,
-		response,
-		data: violation = {}
-	} = new MyApi();
+	const { get, loading: pageLoader, response, data: violation = {} } = new MyApi();
 	const { post, loading } = new MyApi();
 	const [, setList] = useContext(ListContext);
 	const { id: violationId } = useParams();
@@ -37,10 +32,10 @@ export default function ViolationPageUser() {
 		const location = searchCriteria.location;
 		const fromDate = searchCriteria.fromDate;
 		const toDate = searchCriteria.toDate;
-		const plugedNumber = localStorage.getItem("plugedNumber");
+		const plateNumber = localStorage.getItem("plateNumber");
 		try {
 			const data = await get(
-				`/api/violations-log/user/${plugedNumber}?location=${location}&fromDate=${fromDate}&toDate=${toDate}`
+				`/api/violations-log/user/${plateNumber}?location=${location}&fromDate=${fromDate}&toDate=${toDate}`
 			);
 			if (response.ok) {
 				setList(data);
@@ -69,32 +64,19 @@ export default function ViolationPageUser() {
 			{pageLoader && <ProgressBar />}
 			{!pageLoader && response.ok && (
 				<div className="container text-center">
-					<h2 className="text-center text-secondary mb-5">
-						Violation Details
-					</h2>
+					<h2 className="text-center text-secondary mb-5">Violation Details</h2>
 					<MyTable>
 						<Row heading="Date" value={violation.date} />
 						<Row heading="Driver" value={violation.driver} />
 						<Row heading="Tax" value={"$" + violation.tax} />
-						<Row
-							heading="Paid"
-							value={violation.paid ? "Yes" : "No"}
-						/>
+						<Row heading="Paid" value={violation.paid ? "Yes" : "No"} />
 						<Row heading="Location" value={violation.location} />
 						<Row heading="Type" value={violation.type} />
-						<Row
-							heading="Pluged Number"
-							value={violation.plugedNumber}
-						/>
+						<Row heading="Plate Number" value={violation.plateNumber} />
 					</MyTable>
-					<button
-						className="btn btn-primary my-3"
-						onClick={payForViolation}
-					>
+					<button className="btn btn-primary my-3" onClick={payForViolation}>
 						Pay for This Violation
-						{loading && (
-							<span className="ms-2 spinner-grow spinner-grow-sm"></span>
-						)}
+						{loading && <span className="ms-2 spinner-grow spinner-grow-sm"></span>}
 					</button>
 				</div>
 			)}

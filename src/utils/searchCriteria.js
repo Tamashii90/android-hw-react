@@ -2,6 +2,6 @@ export default {
 	location: "",
 	fromDate: "",
 	toDate: "",
-	plugedNumber: "",
+	plateNumber: "",
 	driver: ""
 };

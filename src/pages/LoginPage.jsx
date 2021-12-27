@@ -16,12 +16,12 @@ export default function LoginPage() {
 	const login = async e => {
 		e.preventDefault();
 		const form = new FormData(e.target);
-		const plugedNumber = e.target.password.value;
+		const plateNumber = e.target.password.value;
 		try {
 			const data = await post("/api/login", Object.fromEntries(form));
 			if (response.ok) {
 				if (data.authority === "USER") {
-					localStorage.setItem("plugedNumber", plugedNumber);
+					localStorage.setItem("plateNumber", plateNumber);
 				}
 				localStorage.setItem("token", data.jwt);
 				localStorage.setItem("authority", data.authority);
@@ -47,11 +47,7 @@ export default function LoginPage() {
 				</FormGroup>
 				<FormGroup>
 					<Label htmlFor="password">Password</Label>
-					<Input
-						name="password"
-						type="password"
-						required
-					/>
+					<Input name="password" type="password" required />
 				</FormGroup>
 				<Button loading={loading}>Log in</Button>
 			</Form>

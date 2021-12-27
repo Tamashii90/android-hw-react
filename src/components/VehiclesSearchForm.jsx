@@ -13,9 +13,9 @@ export default function VehiclesSearchForm({ setVehicle }) {
 	const findVehicle = async e => {
 		e.preventDefault();
 		setVehicle(null);
-		const plugedNumber = e.target.plugedNumber.value;
+		const plateNumber = e.target.plateNumber.value;
 		try {
-			const vehicle = await get(`/api/vehicles/${plugedNumber}`);
+			const vehicle = await get(`/api/vehicles/${plateNumber}`);
 			if (response.ok) {
 				setVehicle(vehicle);
 				document.getElementById("vehicle-table").scrollIntoView();
@@ -30,13 +30,8 @@ export default function VehiclesSearchForm({ setVehicle }) {
 		<div className="container text-center">
 			<Form title="Find Vehicle" onSubmit={findVehicle}>
 				<FormGroup>
-					<Label htmlFor="plugedNumber">Pluged Number</Label>
-					<Input
-						minLength="6"
-						maxLength="6"
-						required
-						name="plugedNumber"
-					/>
+					<Label htmlFor="plateNumber">Plate Number</Label>
+					<Input minLength="6" maxLength="6" required name="plateNumber" />
 				</FormGroup>
 				<Button loading={loading}>Search</Button>
 			</Form>

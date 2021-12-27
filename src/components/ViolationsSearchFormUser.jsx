@@ -17,10 +17,10 @@ export default function SearchForm() {
 		const location = e.target.location.value;
 		const fromDate = e.target.fromDate.value;
 		const toDate = e.target.toDate.value;
-		const plugedNumber = localStorage.getItem("plugedNumber");
+		const plateNumber = localStorage.getItem("plateNumber");
 		try {
 			const data = await get(
-				`/api/violations-log/user/${plugedNumber}?location=${location}&fromDate=${fromDate}&toDate=${toDate}`
+				`/api/violations-log/user/${plateNumber}?location=${location}&fromDate=${fromDate}&toDate=${toDate}`
 			);
 			if (response.ok) {
 				searchCriteria.location = location;

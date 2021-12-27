@@ -18,14 +18,14 @@ export default function SearchForm() {
 		const location = e.target.location.value;
 		const fromDate = e.target.fromDate.value;
 		const toDate = e.target.toDate.value;
-		const plugedNumber = e.target.plugedNumber.value;
+		const plateNumber = e.target.plateNumber.value;
 		try {
 			const data = await get(
-				`/api/violations-log/?plugedNumber=${plugedNumber}&driver=${driver}&location=${location}&fromDate=${fromDate}&toDate=${toDate}`
+				`/api/violations-log/?plateNumber=${plateNumber}&driver=${driver}&location=${location}&fromDate=${fromDate}&toDate=${toDate}`
 			);
 			if (response.ok) {
 				searchCriteria.location = location;
-				searchCriteria.plugedNumber = plugedNumber;
+				searchCriteria.plateNumber = plateNumber;
 				searchCriteria.driver = driver;
 				searchCriteria.fromDate = fromDate;
 				searchCriteria.toDate = toDate;
@@ -42,8 +42,8 @@ export default function SearchForm() {
 		<div className="container text-center">
 			<Form onSubmit={search} title="Find Violations">
 				<FormGroup>
-					<Label htmlFor="plugedNumber">Pluged Number</Label>
-					<Input name="plugedNumber" minLength="6" maxLength="6" />
+					<Label htmlFor="plateNumber">Plate Number</Label>
+					<Input name="plateNumber" minLength="6" maxLength="6" />
 				</FormGroup>
 				<FormGroup>
 					<Label htmlFor="driver">Driver</Label>

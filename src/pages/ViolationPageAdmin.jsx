@@ -49,10 +49,7 @@ export default function ViolationPageAdmin() {
 		form.append("type", e.target.type.value);
 		form.append("paid", e.target.paid.checked);
 		try {
-			await put(
-				`/api/violations-log/${violation.id}`,
-				Object.fromEntries(form)
-			);
+			await put(`/api/violations-log/${violation.id}`, Object.fromEntries(form));
 			if (response.ok) {
 				toast.success("Success!");
 				refreshViolationsList();
@@ -69,10 +66,10 @@ export default function ViolationPageAdmin() {
 		const driver = searchCriteria.driver;
 		const fromDate = searchCriteria.fromDate;
 		const toDate = searchCriteria.toDate;
-		const plugedNumber = searchCriteria.plugedNumber;
+		const plateNumber = searchCriteria.plateNumber;
 		try {
 			const data = await get(
-				`/api/violations-log/?plugedNumber=${plugedNumber}&driver=${driver}&location=${location}&fromDate=${fromDate}&toDate=${toDate}`
+				`/api/violations-log/?plateNumber=${plateNumber}&driver=${driver}&location=${location}&fromDate=${fromDate}&toDate=${toDate}`
 			);
 			if (response.ok) {
 				setList(data);
@@ -101,29 +98,23 @@ export default function ViolationPageAdmin() {
 						/>
 					</FormGroup>
 					<FormGroup>
-						<Label htmlFor="plugedNumber">Pluged Number</Label>
+						<Label htmlFor="plateNumber">Plate Number</Label>
 						<Input
 							className="form-control-plaintext"
-							defaultValue={violation.plugedNumber}
+							defaultValue={violation.plateNumber}
 							readOnly
-							name="plugedNumber"
+							name="plateNumber"
 						/>
 					</FormGroup>
 					<FormGroup>
 						<Label htmlFor="location">Location</Label>
-						<Input
-							defaultValue={violation.location}
-							name="location"
-						/>
+						<Input defaultValue={violation.location} name="location" />
 					</FormGroup>
 					<FormGroup>
 						<Label htmlFor="type">Type</Label>
 						<Select name="type">
 							{types.map((type, idx) => (
-								<option
-									key={idx}
-									selected={violation.type === type}
-								>
+								<option key={idx} selected={violation.type === type}>
 									{type}
 								</option>
 							))}
@@ -131,11 +122,7 @@ export default function ViolationPageAdmin() {
 					</FormGroup>
 					<FormGroup>
 						<Label htmlFor="date">Date</Label>
-						<Input
-							type="date"
-							defaultValue={violation.date}
-							name="date"
-						/>
+						<Input type="date" defaultValue={violation.date} name="date" />
 					</FormGroup>
 					<FormGroup>
 						<Label htmlFor="tax">Tax</Label>

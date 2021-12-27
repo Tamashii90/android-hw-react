@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import MyApi from "../utils/MyApi";
 import Button from "./Form/Button";
 
-export default function ViolationModal({ plugedNumber, showModal }) {
+export default function ViolationModal({ plateNumber, showModal }) {
 	const [types, setTypes] = useState([]);
 	const { post, loading, response } = new MyApi();
 	const { get, response: fetchResponse } = new MyApi();
@@ -25,7 +25,7 @@ export default function ViolationModal({ plugedNumber, showModal }) {
 		e.preventDefault();
 		const form = new FormData(e.target);
 		form.append("paid", "false");
-		form.append("plugedNumber", plugedNumber);
+		form.append("plateNumber", plateNumber);
 		try {
 			await post(`/api/violations-log`, Object.fromEntries(form));
 			if (response.ok) {
@@ -49,11 +49,8 @@ export default function ViolationModal({ plugedNumber, showModal }) {
 		<div className="overlay fixed-top w-100 h-100" onClick={closeModal}>
 			<form onSubmit={submitViolation} className="bg-primary">
 				<div className="form-group row">
-					<label
-						htmlFor="plugedNumber"
-						className="col-sm-3 col-form-label"
-					>
-						Pluged Number
+					<label htmlFor="plateNumber" className="col-sm-3 col-form-label">
+						Plate Number
 					</label>
 					<div className="col-sm-9">
 						<input
@@ -61,16 +58,13 @@ export default function ViolationModal({ plugedNumber, showModal }) {
 							readOnly
 							required
 							className="form-control-plaintext"
-							id="plugedNumber"
-							defaultValue={plugedNumber}
+							id="plateNumber"
+							defaultValue={plateNumber}
 						/>
 					</div>
 				</div>
 				<div className="form-group row">
-					<label
-						htmlFor="violationType"
-						className="col-sm-3 col-form-label"
-					>
+					<label htmlFor="violationType" className="col-sm-3 col-form-label">
 						Type
 					</label>
 					<div className="col-sm-9">
@@ -87,10 +81,7 @@ export default function ViolationModal({ plugedNumber, showModal }) {
 					</div>
 				</div>
 				<div className="form-group row">
-					<label
-						htmlFor="location"
-						className="col-sm-3 col-form-label"
-					>
+					<label htmlFor="location" className="col-sm-3 col-form-label">
 						Location
 					</label>
 					<div className="col-sm-9">
