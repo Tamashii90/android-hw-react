@@ -31,7 +31,7 @@ export default function VehiclesSearchForm({ setVehicle }) {
 			<Form title="Find Vehicle" onSubmit={findVehicle}>
 				<FormGroup>
 					<Label htmlFor="plateNumber">Plate Number</Label>
-					<Input minLength="6" maxLength="6" required name="plateNumber" />
+					<Input name="plateNumber" minLength="6" maxLength="6" defaultValue="222222" required  />
 				</FormGroup>
 				<Button loading={loading}>Search</Button>
 			</Form>

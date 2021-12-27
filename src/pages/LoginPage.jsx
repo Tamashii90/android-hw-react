@@ -43,11 +43,11 @@ export default function LoginPage() {
 			<Form onSubmit={login} title="Log in to Your Account">
 				<FormGroup>
 					<Label htmlFor="username">Username</Label>
-					<Input name="username" required />
+					<Input name="username" value="admin" required />
 				</FormGroup>
 				<FormGroup>
 					<Label htmlFor="password">Password</Label>
-					<Input name="password" type="password" required />
+					<Input name="password" type="password" defaultValue="12345678" required />
 				</FormGroup>
 				<Button loading={loading}>Log in</Button>
 			</Form>
