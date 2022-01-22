@@ -17,7 +17,7 @@ export default function ViolationsList() {
 				</h4>
 				{!!count && (
 					<h4>
-						Tax: <b>{"$" + totalTax}</b>
+						Total: <b>{"$" + totalTax}</b>
 					</h4>
 				)}
 			</div>
