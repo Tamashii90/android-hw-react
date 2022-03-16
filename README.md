@@ -1,4 +1,9 @@
-# Traffic Violations Tracker
+<div align="center">
+    <h1>Traffic Violations Tracker</h1>
+    <img alt="image" src="https://i.imgur.com/LnAUvrW.png" />
+</div>
+
+&nbsp;
 
 A ReactJS app that allows **drivers** to keep track of their traffic violations. Also has an admin dashboard for users with **admin** authorities. See backend [here](https://github.com/Tamashii90/android-hw-backend).
 
