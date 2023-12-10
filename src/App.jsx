@@ -9,6 +9,7 @@ import ErrorPage from "./pages/ErrorPage";
 import ViolationPageRouter from "./components/ViolationPageRouter";
 import "./styles/styles.scss";
 import AdminPage from "./pages/AdminPage";
+import { Analytics } from '@vercel/analytics/dist/react';
 
 export function App() {
 	return (
@@ -17,6 +18,7 @@ export function App() {
 				<title>E-Traffic Violations</title>
 			</Helmet>
 			<Header />
+		    <Analytics />
 			<main className="mb-5">
 				<Switch>
 					<Route exact path="/" component={UserPage} />
