@@ -1,5 +1,3 @@
-#### \*Note\*: Heroku removed free plans. Will migrate later when I have time.
-
 <div align="center">
     <h1>Traffic Violations Tracker</h1>
     <img alt="image" src="https://i.imgur.com/LnAUvrW.png" />
